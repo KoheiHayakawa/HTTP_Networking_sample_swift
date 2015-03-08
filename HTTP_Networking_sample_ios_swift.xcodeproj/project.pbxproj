@@ -15,6 +15,7 @@
 		55D016B21AABDC7500910B71 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55D016B01AABDC7500910B71 /* LaunchScreen.xib */; };
 		55D016BE1AABDC7500910B71 /* HTTP_Networking_sample_ios_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D016BD1AABDC7500910B71 /* HTTP_Networking_sample_ios_swiftTests.swift */; };
 		55D016CA1AABE41400910B71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D016C91AABE41400910B71 /* Request.swift */; };
+		55D016CC1AABE5F800910B71 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D016CB1AABE5F800910B71 /* Entry.swift */; };
 		7E054F26FFBFCC865DC9763A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E8CF50653382B768988926D /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		55D016BC1AABDC7500910B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D016BD1AABDC7500910B71 /* HTTP_Networking_sample_ios_swiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP_Networking_sample_ios_swiftTests.swift; sourceTree = "<group>"; };
 		55D016C91AABE41400910B71 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		55D016CB1AABE5F800910B71 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		F20A246B425C7F5D2EC138D3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				55D016C91AABE41400910B71 /* Request.swift */,
+				55D016CB1AABE5F800910B71 /* Entry.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55D016CC1AABE5F800910B71 /* Entry.swift in Sources */,
 				55D016AA1AABDC7500910B71 /* DetailViewController.swift in Sources */,
 				55D016CA1AABE41400910B71 /* Request.swift in Sources */,
 				55D016A81AABDC7500910B71 /* MasterViewController.swift in Sources */,
