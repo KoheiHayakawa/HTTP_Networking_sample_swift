@@ -16,6 +16,8 @@ class Entry: Mappable {
     var title: String?
     var body: String?
     
+    required init(){}
+    
     required init?(_ map: Map) {
         mapping(map)
     }
