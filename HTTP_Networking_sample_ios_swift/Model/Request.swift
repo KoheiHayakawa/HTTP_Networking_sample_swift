@@ -35,55 +35,55 @@ class Request {
         return request
     }
     
-    func get(#path: Path, handler: AlamofireCompletionHandler) {
+    func get(#path: Path, completionHandler: AlamofireCompletionHandler) {
         let urlStr = kBaseURL + path.rawValue
         if let URL = NSURL(string: urlStr) {
             let request = prepareRequest(method: .GET, URL: URL)
-            Alamofire.request(request).responseJSON(handler)
+            Alamofire.request(request).responseJSON(completionHandler)
         }
     }
     
-    func get(#path: Path, query: String, handler: AlamofireCompletionHandler) {
+    func get(#path: Path, query: String, completionHandler: AlamofireCompletionHandler) {
         if let encodedQuery = query.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet()){
             let urlStr = kBaseURL + path.rawValue + encodedQuery
             if let URL = NSURL(string: urlStr) {
                 let request = prepareRequest(method: .GET, URL: URL)
-                Alamofire.request(request).responseJSON(handler)
+                Alamofire.request(request).responseJSON(completionHandler)
             }
         }
     }
     
-    func post(#path: Path, params: [String: AnyObject]?, handler:AlamofireCompletionHandler) {
+    func post(#path: Path, params: [String: AnyObject]?, completionHandler:AlamofireCompletionHandler) {
         let urlStr = kBaseURL + path.rawValue
         if let URL = NSURL(string: urlStr) {
             if let params = params {
                 var request = prepareRequest(method: .POST, URL: URL)
                 request = Alamofire.ParameterEncoding.JSON.encode(request, parameters: params).0 as NSMutableURLRequest
-                Alamofire.request(request).responseJSON(handler)
+                Alamofire.request(request).responseJSON(completionHandler)
                 //Alamofire.request(.POST, urlStr, parameters: params, encoding: .JSON).responseJSON(handler)
             }
         }
     }
     
-    func update(#path: Path, query: String, params: [String: AnyObject]?, handler: AlamofireCompletionHandler) {
+    func update(#path: Path, query: String, params: [String: AnyObject]?, completionHandler: AlamofireCompletionHandler) {
         if let encodedQuery = query.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet()) {
             let urlStr = kBaseURL + path.rawValue + encodedQuery
             if let URL = NSURL(string: urlStr) {
                 if let params = params {
                     var request = prepareRequest(method: .PATCH, URL: URL)
                     request = Alamofire.ParameterEncoding.JSON.encode(request, parameters: params).0 as NSMutableURLRequest
-                    Alamofire.request(request).responseJSON(handler)
+                    Alamofire.request(request).responseJSON(completionHandler)
                 }
             }
         }
     }
     
-    func delete(#path: Path, query: String, handler: AlamofireCompletionHandler) {
+    func delete(#path: Path, query: String, completionHandler: AlamofireCompletionHandler) {
         if let encodedQuery = query.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet()){
             let urlStr = kBaseURL + path.rawValue + encodedQuery
             if let URL = NSURL(string: urlStr) {
                 let request = prepareRequest(method: .DELETE, URL: URL)
-                Alamofire.request(request).responseJSON(handler)
+                Alamofire.request(request).responseJSON(completionHandler)
             }
         }
     }

@@ -41,23 +41,7 @@ class Entry: Mappable {
             success(result)
             return
         }
-        Request().get(path: .Entries, handler: completionHandler)
-    }
-    
-    class func get(#completionHandler: ([Entry]?, NSError?) -> Void) {
-        let completionHandler: AlamofireCompletionHandler = {_, _, data, error in
-            //            if let error = error {
-            //                failure(error)
-            //                return
-            //            }
-            let tweetsJson = JSON(data!)
-            let result = tweetsJson.arrayValue.map{(json) -> Entry in
-                return Mapper<Entry>().map(json.dictionaryObject!)
-            }
-            completionHandler(result, error)
-            return
-        }
-        Request().get(path: .Entries, handler: completionHandler)
+        Request().get(path: .Entries, completionHandler: completionHandler)
     }
     
     class func get(#id: Int, success: Entry -> Void, failure: NSError? -> ()) {
@@ -72,7 +56,7 @@ class Entry: Mappable {
             return
         }
         let query = "/\(id)"
-        Request().get(path: .Entries, query: query, handler: completionHandler)
+        Request().get(path: .Entries, query: query, completionHandler: completionHandler)
     }
     
     func create(#success: Void -> Void, failure: NSError? -> Void) {
@@ -91,7 +75,7 @@ class Entry: Mappable {
             "title" : self.title!,
             "body"  : self.body!
         ]
-        Request().post(path: .Entries, params: params, handler: completionHandler)
+        Request().post(path: .Entries, params: params, completionHandler: completionHandler)
     }
     
     func update(#success: Void -> Void, failure: NSError? -> Void) {
@@ -111,7 +95,7 @@ class Entry: Mappable {
             "body"  : self.body!
         ]
         let query = "/\(self.id!)"
-        Request().update(path: .Entries, query: query, params: params, handler: completionHandler)
+        Request().update(path: .Entries, query: query, params: params, completionHandler: completionHandler)
     }
     
     func delete(#success: Void -> Void, failure: NSError? -> Void) {
@@ -124,7 +108,7 @@ class Entry: Mappable {
             return
         }
         let query = "/\(self.id!)"
-        Request().delete(path: .Entries, query: query, handler: completionHandler)
+        Request().delete(path: .Entries, query: query, completionHandler: completionHandler)
     }
     
 }
