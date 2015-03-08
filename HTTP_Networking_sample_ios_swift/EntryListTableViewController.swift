@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class EntryListTableViewController: UITableViewController {
 
     var objects = NSMutableArray()
 
@@ -24,6 +24,71 @@ class MasterViewController: UITableViewController {
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         self.navigationItem.rightBarButtonItem = addButton
+        
+        
+        Entry.get(id: 1,
+            success: {(entry) in
+                println(entry.title)
+                println("success id")
+            },
+            failure: {(error) in
+                println(error)
+                println("fail id")
+        })
+        
+        
+        let entry = Entry()
+        entry.title = "てすと"
+        entry.body = "ほげ"
+        
+        entry.create(
+            success: {
+                println("success create")
+            },
+            failure: {(error) in
+                println("fail create")
+                println(error)
+            }
+        )
+
+        Entry.get(id: 1,
+            success: {(entry) in
+                entry.title = "お"
+                entry.update(
+                    success: {
+                        println("success update")
+                    },
+                    failure: {error in
+                        println("fail update")
+                    }
+                )
+                println("success id")
+            },
+            failure: {(error) in
+                println(error)
+                println("fail id")
+            }
+        )
+
+        Entry.get(id: 1,
+            success: {(entry) in
+                entry.delete(
+                    success: {(entry) in
+                        println("success delete")
+                    },
+                    failure: {(error) in
+                        println(error)
+                        println("fail delete")
+                    }
+                )
+                println("success id")
+            },
+            failure: {(error) in
+                println(error)
+                println("fail id")
+            }
+        )
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,7 +108,7 @@ class MasterViewController: UITableViewController {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
                 let object = objects[indexPath.row] as NSDate
-            (segue.destinationViewController as DetailViewController).detailItem = object
+            (segue.destinationViewController as EntryDetailViewController).detailItem = object
             }
         }
     }
