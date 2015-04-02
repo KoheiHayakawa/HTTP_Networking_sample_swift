@@ -68,6 +68,7 @@ class EntryEditForm: KHAForm {
         
         entry?.title = cell1.textField.text
         entry?.body = cell2.textView.text
+        
         entry?.update(
             success: {
                 println("success update")
@@ -76,6 +77,7 @@ class EntryEditForm: KHAForm {
                 println("fail update")
             }
         )
+
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

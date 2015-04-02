@@ -38,7 +38,7 @@ class EntryListTableViewDataSource: NSObject, UITableViewDataSource {
         if editingStyle == .Delete {
             let entry = entries[indexPath.row]
             entry.delete(
-                success: {(tweet) in
+                success: {
                     println("success delete")
                 },
                 failure: {(error) in
