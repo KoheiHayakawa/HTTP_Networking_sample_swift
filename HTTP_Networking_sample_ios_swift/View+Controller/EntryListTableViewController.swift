@@ -10,6 +10,7 @@ import UIKit
 
 class EntryListTableViewController: UITableViewController {
 
+    let cellIdentifier = "CellIdentifier"
     var entries:[Entry] = []
 
     override func awakeFromNib() {
@@ -18,6 +19,8 @@ class EntryListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         
         refreshData()
 
@@ -108,7 +111,7 @@ class EntryListTableViewController: UITableViewController {
             success: {(entries) in
                 self.entries = entries.reverse()
                 self.tableView.reloadData()
-                self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
+                //self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
                 self.refreshControl?.endRefreshing()
                 println("success all")
             },
@@ -152,8 +155,8 @@ class EntryListTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as UITableViewCell
         let entry = entries[indexPath.row]
         cell.textLabel!.text = entry.title
         return cell
@@ -178,8 +181,6 @@ class EntryListTableViewController: UITableViewController {
             )
             entries.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
 
