@@ -21,14 +21,14 @@ class EntryListTableViewController: UITableViewController {
         tableView.dataSource = dataSource
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: dataSource.cellIdentifier)
         
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        navigationItem.leftBarButtonItem = editButtonItem()
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "didTouchedEntryCreationBarButton:")
-        self.navigationItem.rightBarButtonItem = addButton
+        navigationItem.rightBarButtonItem = addButton
         
         // pull to reflesh
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl?.addTarget(self, action: Selector("onRefresh:"), forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: Selector("onRefresh:"), forControlEvents: UIControlEvents.ValueChanged)
         
         refreshData()
 
@@ -121,34 +121,12 @@ class EntryListTableViewController: UITableViewController {
         )
     }
     
-    private func onRefresh(sender: UIRefreshControl) {
+    func onRefresh(sender: UIRefreshControl) {
         refreshData()
     }
 
     
     // MARK: - TableViewDelegate
-
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            let entry = dataSource.entries[indexPath.row]
-            entry.delete(
-                success: {(tweet) in
-                    println("success delete")
-                },
-                failure: {(error) in
-                    println(error)
-                    println("fail delete")
-                }
-            )
-            dataSource.entries.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        }
-    }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -158,10 +136,14 @@ class EntryListTableViewController: UITableViewController {
         navigationController?.pushViewController(entryDetailViewController, animated: true)
     }
 
+    
+    // MARK: - Bar button action selector
+    
     func didTouchedEntryCreationBarButton(sender: UIBarButtonItem) {
         let entryCreationForm = EntryCreationForm()
         let navigationController = UINavigationController(rootViewController: entryCreationForm)
         presentViewController(navigationController, animated: true, completion: nil)
     }
+    
 }
 

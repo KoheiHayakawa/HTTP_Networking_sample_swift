@@ -28,4 +28,26 @@ class EntryListTableViewDataSource: NSObject, UITableViewDataSource {
         cell.textLabel!.text = entry.title
         return cell
     }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let entry = entries[indexPath.row]
+            entry.delete(
+                success: {(tweet) in
+                    println("success delete")
+                },
+                failure: {(error) in
+                    println(error)
+                    println("fail delete")
+                }
+            )
+            entries.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+    }
 }

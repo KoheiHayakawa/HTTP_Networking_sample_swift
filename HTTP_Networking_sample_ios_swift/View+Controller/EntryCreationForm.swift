@@ -12,6 +12,14 @@ class EntryCreationForm: KHAForm {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Create Entry"
+        
+        let closeButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "didTouchedCloseBarButton:")
+        navigationItem.leftBarButtonItem = closeButton
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "didTouchedDoneBarButton:")
+        navigationItem.rightBarButtonItem = doneButton
     }
 
     override func didReceiveMemoryWarning() {
@@ -19,7 +27,9 @@ class EntryCreationForm: KHAForm {
         // Dispose of any resources that can be recreated.
     }
     
-    // override a method to determine form structure
+    
+    // MARK: - KHAForm delegate
+
     override func formCellsInForm(form: KHAForm) -> [[KHAFormCell]] {
         
         // setup cells
@@ -33,6 +43,34 @@ class EntryCreationForm: KHAForm {
         cell2.textView.placeholder = "Body"
 
         return [[cell1], [cell2]]
+    }
+
+    
+    // MARK: - Bar button action selector
+
+    func didTouchedCloseBarButton(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func didTouchedDoneBarButton(sender: UIBarButtonItem) {
+        
+        let cell1 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as KHATextFieldFormCell
+        let cell2 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as KHATextViewFormCell
+        
+        let entry = Entry()
+        entry.title = cell1.textField.text
+        entry.body = cell2.textView.text
+        
+        entry.create(
+            success: {
+                println("success create")
+            },
+            failure: {(error) in
+                println("fail create")
+                println(error)
+            }
+        )
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
 }
