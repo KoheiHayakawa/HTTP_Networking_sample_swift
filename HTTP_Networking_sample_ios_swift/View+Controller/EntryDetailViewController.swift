@@ -20,6 +20,9 @@ class EntryDetailViewController: UIViewController {
         entryDetailView = EntryDetailView(frame: view.frame)
         entryDetailView?.entry = entry
         view.addSubview(entryDetailView!)
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "didTouchedEditBarButton:")
+        navigationItem.rightBarButtonItem = doneButton
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,5 +30,14 @@ class EntryDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    // MARK: - Bar button action selector
+    
+    func didTouchedEditBarButton(sender: UIBarButtonItem) {
+        let entryEditForm = EntryEditForm()
+        entryEditForm.entry = entry
+        let navigationController = UINavigationController(rootViewController: entryEditForm)
+        presentViewController(navigationController, animated: true, completion: nil)
+    }
 }
 
