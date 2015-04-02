@@ -10,21 +10,93 @@ import UIKit
 
 class EntryDetailView: UIView {
     
+    let titleLabel = UILabel()
+    let bodyLabel = UILabel()
+    
+    var entry: Entry? {
+        didSet {
+            if let entry: Entry = self.entry {
+                titleLabel.text = entry.title
+                bodyLabel.text = entry.body
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         backgroundColor = UIColor.whiteColor()
+        
+        titleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        addSubview(titleLabel)
+        addConstraints([
+            NSLayoutConstraint(
+                item: titleLabel,
+                attribute: .Left,
+                relatedBy: .Equal,
+                toItem: self,
+                attribute: .Left,
+                multiplier: 1,
+                constant: 10),
+            NSLayoutConstraint(
+                item: titleLabel,
+                attribute: .Right,
+                relatedBy: .Equal,
+                toItem: self,
+                attribute: .Right,
+                multiplier: 1,
+                constant: -10),
+            NSLayoutConstraint(
+                item: titleLabel,
+                attribute: .Top,
+                relatedBy: .Equal,
+                toItem: self,
+                attribute: .Top,
+                multiplier: 1,
+                constant: 100),
+            NSLayoutConstraint(
+                item: titleLabel,
+                attribute: .Height,
+                relatedBy: .Equal,
+                toItem: nil,
+                attribute: .NotAnAttribute,
+                multiplier: 1,
+                constant: 44)]
+        )
+        
+        bodyLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        bodyLabel.numberOfLines = 0
+        addSubview(bodyLabel)
+        addConstraints([
+            NSLayoutConstraint(
+                item: bodyLabel,
+                attribute: .Left,
+                relatedBy: .Equal,
+                toItem: self,
+                attribute: .Left,
+                multiplier: 1,
+                constant: 10),
+            NSLayoutConstraint(
+                item: bodyLabel,
+                attribute: .Right,
+                relatedBy: .Equal,
+                toItem: self,
+                attribute: .Right,
+                multiplier: 1,
+                constant: -10),
+            NSLayoutConstraint(
+                item: bodyLabel,
+                attribute: .Top,
+                relatedBy: .Equal,
+                toItem: self,
+                attribute: .Top,
+                multiplier: 1,
+                constant: 144)]
+        )
     }
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }
