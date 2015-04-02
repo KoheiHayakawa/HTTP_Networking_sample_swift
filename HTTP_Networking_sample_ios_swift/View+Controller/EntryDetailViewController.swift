@@ -9,9 +9,9 @@
 import UIKit
 
 class EntryDetailViewController: UIViewController {
-
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var bodyLabel: UILabel!
+    
+    let titleLabel = UILabel()
+    let bodyLabel = UILabel()
     
     var entryDetailView: EntryDetailView?
 
@@ -25,12 +25,8 @@ class EntryDetailViewController: UIViewController {
     func configureView() {
         // Update the user interface for the detail item.
         if let entry: Entry = self.entry {
-            if let titleLabel = self.titleLabel {
-                titleLabel.text = entry.title
-            }
-            if let bodyLabel = self.bodyLabel {
-                bodyLabel.text = entry.body
-            }
+            titleLabel.text = entry.title
+            bodyLabel.text = entry.body
         }
     }
 
@@ -41,22 +37,78 @@ class EntryDetailViewController: UIViewController {
         entryDetailView = EntryDetailView(frame: view.frame)
         view.addSubview(entryDetailView!)
         
-        //self.shopDetailView = [[ShopDetailView alloc] initWithFrame:self.view.frame];
-        //self.shopDetailView.delegate = self;
+        titleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        view.addSubview(titleLabel)
+        view.addConstraints([
+            NSLayoutConstraint(
+                item: titleLabel,
+                attribute: .Left,
+                relatedBy: .Equal,
+                toItem: view,
+                attribute: .Left,
+                multiplier: 1,
+                constant: 10),
+            NSLayoutConstraint(
+                item: titleLabel,
+                attribute: .Right,
+                relatedBy: .Equal,
+                toItem: view,
+                attribute: .Right,
+                multiplier: 1,
+                constant: -10),
+            NSLayoutConstraint(
+                item: titleLabel,
+                attribute: .Top,
+                relatedBy: .Equal,
+                toItem: view,
+                attribute: .Top,
+                multiplier: 1,
+                constant: 100),
+            NSLayoutConstraint(
+                item: titleLabel,
+                attribute: .Height,
+                relatedBy: .Equal,
+                toItem: nil,
+                attribute: .NotAnAttribute,
+                multiplier: 1,
+                constant: 44)]
+        )
         
-        //self.shopDetailView.shop = self.shop;
-        
-        //[self.view addSubview:self.shopDetailView];
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        //self.configureView()
+        bodyLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        bodyLabel.numberOfLines = 0
+        view.addSubview(bodyLabel)
+        view.addConstraints([
+            NSLayoutConstraint(
+                item: bodyLabel,
+                attribute: .Left,
+                relatedBy: .Equal,
+                toItem: view,
+                attribute: .Left,
+                multiplier: 1,
+                constant: 10),
+            NSLayoutConstraint(
+                item: bodyLabel,
+                attribute: .Right,
+                relatedBy: .Equal,
+                toItem: view,
+                attribute: .Right,
+                multiplier: 1,
+                constant: -10),
+            NSLayoutConstraint(
+                item: bodyLabel,
+                attribute: .Top,
+                relatedBy: .Equal,
+                toItem: view,
+                attribute: .Top,
+                multiplier: 1,
+                constant: 144)]
+        )
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 
