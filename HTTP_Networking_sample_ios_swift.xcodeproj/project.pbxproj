@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55A5AAC71ACD0FDF00BA6140 /* EntryListTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AAC61ACD0FDF00BA6140 /* EntryListTableViewDataSource.swift */; };
+		55A5AACA1ACD14EC00BA6140 /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AAC91ACD14EC00BA6140 /* EntryDetailView.swift */; };
 		55D016A61AABDC7500910B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D016A51AABDC7500910B71 /* AppDelegate.swift */; };
 		55D016A81AABDC7500910B71 /* EntryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D016A71AABDC7500910B71 /* EntryListTableViewController.swift */; };
 		55D016AA1AABDC7500910B71 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D016A91AABDC7500910B71 /* EntryDetailViewController.swift */; };
@@ -31,6 +33,8 @@
 /* Begin PBXFileReference section */
 		02FEB7F3244E93D038C9F074 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4E8CF50653382B768988926D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55A5AAC61ACD0FDF00BA6140 /* EntryListTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryListTableViewDataSource.swift; sourceTree = "<group>"; };
+		55A5AAC91ACD14EC00BA6140 /* EntryDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDetailView.swift; sourceTree = "<group>"; };
 		55D016A01AABDC7500910B71 /* HTTP_Networking_sample_ios_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTTP_Networking_sample_ios_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D016A41AABDC7500910B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D016A51AABDC7500910B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +69,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55A5AAC51ACD0FB200BA6140 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				55A5AAC61ACD0FDF00BA6140 /* EntryListTableViewDataSource.swift */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
+		55A5AAC81ACD14BB00BA6140 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55A5AAC91ACD14EC00BA6140 /* EntryDetailView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		55D016971AABDC7500910B71 = {
 			isa = PBXGroup;
 			children = (
@@ -90,7 +110,9 @@
 			children = (
 				55D016A51AABDC7500910B71 /* AppDelegate.swift */,
 				55D016C71AABE3E100910B71 /* Model */,
-				55D016C81AABE3E700910B71 /* View+Controller */,
+				55A5AAC81ACD14BB00BA6140 /* View */,
+				55D016C81AABE3E700910B71 /* Controller */,
+				55A5AAC51ACD0FB200BA6140 /* DataSource */,
 				55D016AE1AABDC7500910B71 /* Images.xcassets */,
 				55D016B01AABDC7500910B71 /* LaunchScreen.xib */,
 				55D016A31AABDC7500910B71 /* Supporting Files */,
@@ -132,12 +154,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		55D016C81AABE3E700910B71 /* View+Controller */ = {
+		55D016C81AABE3E700910B71 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				55D016A71AABDC7500910B71 /* EntryListTableViewController.swift */,
 				55D016A91AABDC7500910B71 /* EntryDetailViewController.swift */,
 			);
+			name = Controller;
 			path = "View+Controller";
 			sourceTree = "<group>";
 		};
@@ -309,7 +332,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				55D016CC1AABE5F800910B71 /* Entry.swift in Sources */,
+				55A5AAC71ACD0FDF00BA6140 /* EntryListTableViewDataSource.swift in Sources */,
 				55D016AA1AABDC7500910B71 /* EntryDetailViewController.swift in Sources */,
+				55A5AACA1ACD14EC00BA6140 /* EntryDetailView.swift in Sources */,
 				55D016CA1AABE41400910B71 /* Request.swift in Sources */,
 				55D016A81AABDC7500910B71 /* EntryListTableViewController.swift in Sources */,
 				55D016A61AABDC7500910B71 /* AppDelegate.swift in Sources */,

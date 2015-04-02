@@ -10,17 +10,14 @@ import UIKit
 
 class EntryListTableViewController: UITableViewController {
 
-    let cellIdentifier = "CellIdentifier"
-    var entries:[Entry] = []
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+    let dataSource = EntryListTableViewDataSource()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        tableView.delegate = self
+        tableView.dataSource = dataSource
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: dataSource.cellIdentifier)
         
         refreshData()
 
@@ -109,9 +106,8 @@ class EntryListTableViewController: UITableViewController {
         
         Entry.get(
             success: {(entries) in
-                self.entries = entries.reverse()
+                self.dataSource.entries = entries.reverse()
                 self.tableView.reloadData()
-                //self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
                 self.refreshControl?.endRefreshing()
                 println("success all")
             },
@@ -127,40 +123,20 @@ class EntryListTableViewController: UITableViewController {
         refreshData()
     }
 
-    func insertNewObject(sender: AnyObject) {
-        //objects.insertObject(NSDate(), atIndex: 0)
-        //let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        //self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-    }
-
+    
     // MARK: - Segues
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let entry = entries[indexPath.row]
+                let entry = dataSource.entries[indexPath.row]
             (segue.destinationViewController as EntryDetailViewController).entry = entry
             }
         }
     }
 
+    
     // MARK: - Table View
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return entries.count
-    }
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as UITableViewCell
-        let entry = entries[indexPath.row]
-        cell.textLabel!.text = entry.title
-        return cell
-    }
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
@@ -169,7 +145,7 @@ class EntryListTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let entry = entries[indexPath.row]
+            let entry = dataSource.entries[indexPath.row]
             entry.delete(
                 success: {(tweet) in
                     println("success delete")
@@ -179,11 +155,18 @@ class EntryListTableViewController: UITableViewController {
                     println("fail delete")
                 }
             )
-            entries.removeAtIndex(indexPath.row)
+            dataSource.entries.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
-
+    
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        //tableView.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: UITableViewScrollPosition.Top)
+        let entry = dataSource.entries[indexPath.row]
+        let entryDetailViewController = EntryDetailViewController()
+        entryDetailViewController.entry = entry
+        navigationController?.pushViewController(entryDetailViewController, animated: true)
+    }
 
 }
 
