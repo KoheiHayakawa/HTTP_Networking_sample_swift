@@ -15,6 +15,8 @@ class EntryListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Entry List"
+        
         tableView.delegate = self
         tableView.dataSource = dataSource
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: dataSource.cellIdentifier)
@@ -124,19 +126,7 @@ class EntryListTableViewController: UITableViewController {
     }
 
     
-    // MARK: - Segues
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let entry = dataSource.entries[indexPath.row]
-            (segue.destinationViewController as EntryDetailViewController).entry = entry
-            }
-        }
-    }
-
-    
-    // MARK: - Table View
+    // MARK: - TableViewDelegate
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
@@ -160,8 +150,8 @@ class EntryListTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        //tableView.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: UITableViewScrollPosition.Top)
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let entry = dataSource.entries[indexPath.row]
         let entryDetailViewController = EntryDetailViewController()
         entryDetailViewController.entry = entry

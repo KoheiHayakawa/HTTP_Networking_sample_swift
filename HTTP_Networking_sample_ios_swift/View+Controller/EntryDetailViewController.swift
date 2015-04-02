@@ -12,6 +12,8 @@ class EntryDetailViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
+    
+    var entryDetailView: EntryDetailView?
 
     var entry: Entry? {
         didSet {
@@ -34,8 +36,20 @@ class EntryDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Entry Detail";
+        entryDetailView = EntryDetailView(frame: view.frame)
+        view.addSubview(entryDetailView!)
+        
+        //self.shopDetailView = [[ShopDetailView alloc] initWithFrame:self.view.frame];
+        //self.shopDetailView.delegate = self;
+        
+        //self.shopDetailView.shop = self.shop;
+        
+        //[self.view addSubview:self.shopDetailView];
+        
         // Do any additional setup after loading the view, typically from a nib.
-        self.configureView()
+        //self.configureView()
     }
 
     override func didReceiveMemoryWarning() {
