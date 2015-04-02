@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		55A5AAC71ACD0FDF00BA6140 /* EntryListTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AAC61ACD0FDF00BA6140 /* EntryListTableViewDataSource.swift */; };
 		55A5AACA1ACD14EC00BA6140 /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AAC91ACD14EC00BA6140 /* EntryDetailView.swift */; };
+		55A5AAD51ACD21F600BA6140 /* KHAButtonFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AACC1ACD21F600BA6140 /* KHAButtonFormCell.swift */; };
+		55A5AAD61ACD21F600BA6140 /* KHADateFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AACD1ACD21F600BA6140 /* KHADateFormCell.swift */; };
+		55A5AAD71ACD21F600BA6140 /* KHADatePickerFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AACE1ACD21F600BA6140 /* KHADatePickerFormCell.swift */; };
+		55A5AAD81ACD21F600BA6140 /* KHAForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AACF1ACD21F600BA6140 /* KHAForm.swift */; };
+		55A5AAD91ACD21F600BA6140 /* KHAFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AAD01ACD21F600BA6140 /* KHAFormCell.swift */; };
+		55A5AADA1ACD21F600BA6140 /* KHASegmentedControlFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AAD11ACD21F600BA6140 /* KHASegmentedControlFormCell.swift */; };
+		55A5AADB1ACD21F600BA6140 /* KHASwitchFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AAD21ACD21F600BA6140 /* KHASwitchFormCell.swift */; };
+		55A5AADC1ACD21F600BA6140 /* KHATextFieldFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AAD31ACD21F600BA6140 /* KHATextFieldFormCell.swift */; };
+		55A5AADD1ACD21F600BA6140 /* KHATextViewFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AAD41ACD21F600BA6140 /* KHATextViewFormCell.swift */; };
+		55A5AAE01ACD221D00BA6140 /* EntryCreationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AADF1ACD221D00BA6140 /* EntryCreationForm.swift */; };
 		55D016A61AABDC7500910B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D016A51AABDC7500910B71 /* AppDelegate.swift */; };
 		55D016A81AABDC7500910B71 /* EntryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D016A71AABDC7500910B71 /* EntryListTableViewController.swift */; };
 		55D016AA1AABDC7500910B71 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D016A91AABDC7500910B71 /* EntryDetailViewController.swift */; };
@@ -35,6 +45,16 @@
 		4E8CF50653382B768988926D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55A5AAC61ACD0FDF00BA6140 /* EntryListTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryListTableViewDataSource.swift; sourceTree = "<group>"; };
 		55A5AAC91ACD14EC00BA6140 /* EntryDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDetailView.swift; sourceTree = "<group>"; };
+		55A5AACC1ACD21F600BA6140 /* KHAButtonFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KHAButtonFormCell.swift; sourceTree = "<group>"; };
+		55A5AACD1ACD21F600BA6140 /* KHADateFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KHADateFormCell.swift; sourceTree = "<group>"; };
+		55A5AACE1ACD21F600BA6140 /* KHADatePickerFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KHADatePickerFormCell.swift; sourceTree = "<group>"; };
+		55A5AACF1ACD21F600BA6140 /* KHAForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KHAForm.swift; sourceTree = "<group>"; };
+		55A5AAD01ACD21F600BA6140 /* KHAFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KHAFormCell.swift; sourceTree = "<group>"; };
+		55A5AAD11ACD21F600BA6140 /* KHASegmentedControlFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KHASegmentedControlFormCell.swift; sourceTree = "<group>"; };
+		55A5AAD21ACD21F600BA6140 /* KHASwitchFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KHASwitchFormCell.swift; sourceTree = "<group>"; };
+		55A5AAD31ACD21F600BA6140 /* KHATextFieldFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KHATextFieldFormCell.swift; sourceTree = "<group>"; };
+		55A5AAD41ACD21F600BA6140 /* KHATextViewFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KHATextViewFormCell.swift; sourceTree = "<group>"; };
+		55A5AADF1ACD221D00BA6140 /* EntryCreationForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryCreationForm.swift; sourceTree = "<group>"; };
 		55D016A01AABDC7500910B71 /* HTTP_Networking_sample_ios_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTTP_Networking_sample_ios_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D016A41AABDC7500910B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D016A51AABDC7500910B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +105,30 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		55A5AACB1ACD21F600BA6140 /* KHAForm */ = {
+			isa = PBXGroup;
+			children = (
+				55A5AACC1ACD21F600BA6140 /* KHAButtonFormCell.swift */,
+				55A5AACD1ACD21F600BA6140 /* KHADateFormCell.swift */,
+				55A5AACE1ACD21F600BA6140 /* KHADatePickerFormCell.swift */,
+				55A5AACF1ACD21F600BA6140 /* KHAForm.swift */,
+				55A5AAD01ACD21F600BA6140 /* KHAFormCell.swift */,
+				55A5AAD11ACD21F600BA6140 /* KHASegmentedControlFormCell.swift */,
+				55A5AAD21ACD21F600BA6140 /* KHASwitchFormCell.swift */,
+				55A5AAD31ACD21F600BA6140 /* KHATextFieldFormCell.swift */,
+				55A5AAD41ACD21F600BA6140 /* KHATextViewFormCell.swift */,
+			);
+			path = KHAForm;
+			sourceTree = "<group>";
+		};
+		55A5AADE1ACD21FA00BA6140 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				55A5AACB1ACD21F600BA6140 /* KHAForm */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
 		55D016971AABDC7500910B71 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +157,7 @@
 				55A5AAC81ACD14BB00BA6140 /* View */,
 				55D016C81AABE3E700910B71 /* Controller */,
 				55A5AAC51ACD0FB200BA6140 /* DataSource */,
+				55A5AADE1ACD21FA00BA6140 /* Library */,
 				55D016AE1AABDC7500910B71 /* Images.xcassets */,
 				55D016B01AABDC7500910B71 /* LaunchScreen.xib */,
 				55D016A31AABDC7500910B71 /* Supporting Files */,
@@ -159,6 +204,7 @@
 			children = (
 				55D016A71AABDC7500910B71 /* EntryListTableViewController.swift */,
 				55D016A91AABDC7500910B71 /* EntryDetailViewController.swift */,
+				55A5AADF1ACD221D00BA6140 /* EntryCreationForm.swift */,
 			);
 			name = Controller;
 			path = "View+Controller";
@@ -331,13 +377,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55A5AAD61ACD21F600BA6140 /* KHADateFormCell.swift in Sources */,
 				55D016CC1AABE5F800910B71 /* Entry.swift in Sources */,
+				55A5AAD71ACD21F600BA6140 /* KHADatePickerFormCell.swift in Sources */,
 				55A5AAC71ACD0FDF00BA6140 /* EntryListTableViewDataSource.swift in Sources */,
+				55A5AADC1ACD21F600BA6140 /* KHATextFieldFormCell.swift in Sources */,
+				55A5AADB1ACD21F600BA6140 /* KHASwitchFormCell.swift in Sources */,
 				55D016AA1AABDC7500910B71 /* EntryDetailViewController.swift in Sources */,
 				55A5AACA1ACD14EC00BA6140 /* EntryDetailView.swift in Sources */,
+				55A5AADA1ACD21F600BA6140 /* KHASegmentedControlFormCell.swift in Sources */,
 				55D016CA1AABE41400910B71 /* Request.swift in Sources */,
 				55D016A81AABDC7500910B71 /* EntryListTableViewController.swift in Sources */,
+				55A5AAE01ACD221D00BA6140 /* EntryCreationForm.swift in Sources */,
+				55A5AAD91ACD21F600BA6140 /* KHAFormCell.swift in Sources */,
+				55A5AADD1ACD21F600BA6140 /* KHATextViewFormCell.swift in Sources */,
+				55A5AAD51ACD21F600BA6140 /* KHAButtonFormCell.swift in Sources */,
 				55D016A61AABDC7500910B71 /* AppDelegate.swift in Sources */,
+				55A5AAD81ACD21F600BA6140 /* KHAForm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

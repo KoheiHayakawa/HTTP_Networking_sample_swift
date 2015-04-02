@@ -21,17 +21,17 @@ class EntryListTableViewController: UITableViewController {
         tableView.dataSource = dataSource
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: dataSource.cellIdentifier)
         
-        refreshData()
-
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
+        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "didTouchedEntryCreationBarButton:")
         self.navigationItem.rightBarButtonItem = addButton
         
         // pull to reflesh
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: Selector("onRefresh:"), forControlEvents: UIControlEvents.ValueChanged)
         
+        refreshData()
+
 //        Entry.get(id: 1,
 //            success: {(entry) in
 //                println(entry.title)
@@ -121,7 +121,7 @@ class EntryListTableViewController: UITableViewController {
         )
     }
     
-    func onRefresh(sender: UIRefreshControl) {
+    private func onRefresh(sender: UIRefreshControl) {
         refreshData()
     }
 
@@ -158,5 +158,10 @@ class EntryListTableViewController: UITableViewController {
         navigationController?.pushViewController(entryDetailViewController, animated: true)
     }
 
+    func didTouchedEntryCreationBarButton(sender: UIBarButtonItem) {
+        let entryCreationForm = EntryCreationForm()
+        let navigationController = UINavigationController(rootViewController: entryCreationForm)
+        presentViewController(navigationController, animated: true, completion: nil)
+    }
 }
 
