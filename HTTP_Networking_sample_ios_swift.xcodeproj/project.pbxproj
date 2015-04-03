@@ -58,7 +58,7 @@
 		55A5AAD41ACD21F600BA6140 /* KHATextViewFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KHATextViewFormCell.swift; sourceTree = "<group>"; };
 		55A5AADF1ACD221D00BA6140 /* EntryCreationForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryCreationForm.swift; sourceTree = "<group>"; };
 		55A5AAE11ACD3C3C00BA6140 /* EntryEditForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryEditForm.swift; sourceTree = "<group>"; };
-		55A5AAE31ACE5C8900BA6140 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		55A5AAE31ACE5C8900BA6140 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = Model/Alert.swift; sourceTree = "<group>"; };
 		55D016A01AABDC7500910B71 /* HTTP_Networking_sample_ios_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTTP_Networking_sample_ios_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D016A41AABDC7500910B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D016A51AABDC7500910B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +133,14 @@
 			name = Library;
 			sourceTree = "<group>";
 		};
+		55A5AAE51ACE63C400BA6140 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				55A5AAE31ACE5C8900BA6140 /* Alert.swift */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
 		55D016971AABDC7500910B71 = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +168,7 @@
 				55D016C71AABE3E100910B71 /* Model */,
 				55A5AAC81ACD14BB00BA6140 /* View */,
 				55D016C81AABE3E700910B71 /* Controller */,
+				55A5AAE51ACE63C400BA6140 /* Utility */,
 				55A5AAC51ACD0FB200BA6140 /* DataSource */,
 				55A5AADE1ACD21FA00BA6140 /* Library */,
 				55D016AE1AABDC7500910B71 /* Images.xcassets */,
@@ -199,7 +208,6 @@
 			children = (
 				55D016C91AABE41400910B71 /* Request.swift */,
 				55D016CB1AABE5F800910B71 /* Entry.swift */,
-				55A5AAE31ACE5C8900BA6140 /* Alert.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

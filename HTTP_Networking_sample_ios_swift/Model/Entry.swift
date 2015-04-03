@@ -44,7 +44,7 @@ class Entry: Mappable {
         Request().get(path: .Entries, completionHandler: completionHandler)
     }
     
-    class func get(#id: Int, success: Entry -> Void, failure: NSError? -> ()) {
+    class func get(#id: Int, success: Entry -> Void, failure: NSError? -> Void) {
         let completionHandler: AlamofireCompletionHandler = {_, _, data, error in
             if let error = error {
                 failure(error)
