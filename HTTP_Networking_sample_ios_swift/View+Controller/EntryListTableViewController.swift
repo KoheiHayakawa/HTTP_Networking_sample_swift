@@ -14,7 +14,7 @@ class EntryListTableViewController: UITableViewController {
     private let cellIdentifier = "CellIdentifier"
 
     
-    // MARK: - View life cycle
+    // MARK: - View lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()

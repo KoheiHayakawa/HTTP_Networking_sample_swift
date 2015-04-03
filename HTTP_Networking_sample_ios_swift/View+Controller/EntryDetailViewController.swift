@@ -14,7 +14,7 @@ class EntryDetailViewController: UIViewController {
     private var entryDetailView: EntryDetailView?
 
     
-    // MARK: - View life cycle
+    // MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()

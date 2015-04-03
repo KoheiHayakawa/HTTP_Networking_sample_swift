@@ -11,7 +11,7 @@ import UIKit
 class EntryCreationForm: KHAForm {
 
     
-    // MARK: - View life cycle
+    // MARK: - View lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
