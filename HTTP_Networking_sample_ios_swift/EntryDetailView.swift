@@ -10,8 +10,8 @@ import UIKit
 
 class EntryDetailView: UIView {
     
-    let titleLabel = UILabel()
-    let bodyLabel = UILabel()
+    private let titleLabel = UILabel()
+    private let bodyLabel = UILabel()
     
     var entry: Entry? {
         didSet {

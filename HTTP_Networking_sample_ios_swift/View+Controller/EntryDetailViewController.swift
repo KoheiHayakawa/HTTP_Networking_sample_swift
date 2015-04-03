@@ -11,7 +11,7 @@ import UIKit
 class EntryDetailViewController: UIViewController {
 
     var entry: Entry?
-    var entryDetailView: EntryDetailView?
+    private var entryDetailView: EntryDetailView?
 
     override func viewDidLoad() {
         super.viewDidLoad()

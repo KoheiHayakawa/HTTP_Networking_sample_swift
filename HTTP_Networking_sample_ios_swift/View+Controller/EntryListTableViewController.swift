@@ -10,8 +10,8 @@ import UIKit
 
 class EntryListTableViewController: UITableViewController {
 
-    var entries:[Entry] = []
-    let cellIdentifier = "CellIdentifier"
+    private var entries:[Entry] = []
+    private let cellIdentifier = "CellIdentifier"
 
     override func viewDidLoad() {
         super.viewDidLoad()
