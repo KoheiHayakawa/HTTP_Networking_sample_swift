@@ -12,6 +12,9 @@ class EntryEditForm: KHAForm {
     
     var entry: Entry?
     
+    
+    // MARK: - View life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

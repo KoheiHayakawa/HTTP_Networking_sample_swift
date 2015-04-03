@@ -10,6 +10,9 @@ import UIKit
 
 class EntryCreationForm: KHAForm {
 
+    
+    // MARK: - View life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
