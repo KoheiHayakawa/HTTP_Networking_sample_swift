@@ -58,7 +58,7 @@ class EntryEditForm: KHAForm {
     // MARK: - Bar button action selector
     
     func didTouchedCloseBarButton(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func didTouchedDoneBarButton(sender: UIBarButtonItem) {
@@ -78,7 +78,7 @@ class EntryEditForm: KHAForm {
             }
         )
 
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func didTouchedDeleteButton(sender: UIBarButtonItem) {

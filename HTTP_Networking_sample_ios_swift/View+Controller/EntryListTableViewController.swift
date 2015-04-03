@@ -56,7 +56,7 @@ class EntryListTableViewController: UITableViewController {
     }
     
     func onRefresh(sender: UIRefreshControl) {
-        self.refreshControl?.beginRefreshing()
+        refreshControl?.beginRefreshing()
         Entry.get(
             success: {(entries) in
                 self.entries = entries.reverse()
