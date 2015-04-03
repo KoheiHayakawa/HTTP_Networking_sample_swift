@@ -42,9 +42,21 @@ class EntryListTableViewController: UITableViewController {
     }
 
     private func refreshData() {
-        
+        Entry.get(
+            success: {(entries) in
+                self.entries = entries.reverse()
+                self.tableView.reloadData()
+                println("success all")
+            },
+            failure: {(error) in
+                println(error)
+                println("fail all")
+            }
+        )
+    }
+    
+    func onRefresh(sender: UIRefreshControl) {
         self.refreshControl?.beginRefreshing()
-        
         Entry.get(
             success: {(entries) in
                 self.entries = entries.reverse()
@@ -58,10 +70,6 @@ class EntryListTableViewController: UITableViewController {
                 println("fail all")
             }
         )
-    }
-    
-    func onRefresh(sender: UIRefreshControl) {
-        refreshData()
     }
 
     
