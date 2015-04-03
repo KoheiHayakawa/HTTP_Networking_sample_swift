@@ -10,7 +10,8 @@ import UIKit
 
 class EntryListTableViewController: UITableViewController {
 
-    let dataSource = EntryListTableViewDataSource()
+    var entries:[Entry] = []
+    let cellIdentifier = "CellIdentifier"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +19,7 @@ class EntryListTableViewController: UITableViewController {
         title = "Entry List"
         
         tableView.delegate = self
-        tableView.dataSource = dataSource
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: dataSource.cellIdentifier)
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         
         navigationItem.leftBarButtonItem = editButtonItem()
 
@@ -47,7 +47,7 @@ class EntryListTableViewController: UITableViewController {
         
         Entry.get(
             success: {(entries) in
-                self.dataSource.entries = entries.reverse()
+                self.entries = entries.reverse()
                 self.tableView.reloadData()
                 self.refreshControl?.endRefreshing()
                 println("success all")
@@ -65,11 +65,65 @@ class EntryListTableViewController: UITableViewController {
     }
 
     
+    // MARK: - TableViewDataSource
+
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return entries.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as UITableViewCell
+        let entry = entries[indexPath.row]
+        cell.textLabel!.text = entry.title
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            
+            let alert = UIAlertController(
+                title: "削除します",
+                message: "本当によろしいですか？",
+                preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(
+                title: "削除する",
+                style: .Default,
+                handler: {action in
+                    let entry = self.entries[indexPath.row]
+                    entry.delete(
+                        success: {
+                            println("success delete")
+                            self.entries.removeAtIndex(indexPath.row)
+                            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                        },
+                        failure: {(error) in
+                            println(error)
+                            println("fail delete")
+                        }
+                    )
+                    return
+            }))
+            alert.addAction(UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil))
+            presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    
     // MARK: - TableViewDelegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let entry = dataSource.entries[indexPath.row]
+        let entry = entries[indexPath.row]
         let entryDetailViewController = EntryDetailViewController()
         entryDetailViewController.entry = entry
         navigationController?.pushViewController(entryDetailViewController, animated: true)
