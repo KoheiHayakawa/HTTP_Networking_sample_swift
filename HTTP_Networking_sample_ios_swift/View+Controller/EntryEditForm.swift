@@ -83,30 +83,22 @@ class EntryEditForm: KHAForm {
     
     func didTouchedDeleteButton(sender: UIBarButtonItem) {
         
-        let alert = UIAlertController(
-            title: "削除します",
-            message: "本当によろしいですか？",
-            preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(
-            title: "削除する",
-            style: .Default,
-            handler: {action in
-                self.entry?.delete(
-                    success: {
-                        println("success delete")
-                        self.dismissViewControllerAnimated(true, completion: nil)
-                        let navigationController = UIApplication.sharedApplication().keyWindow?.rootViewController as UINavigationController
-                        navigationController.popViewControllerAnimated(false)
-                    },
-                    failure: {(error) in
-                        println(error)
-                        println("fail delete")
-                    }
-                )
-                return
-        }))
-        alert.addAction(UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil))
-        presentViewController(alert, animated: true, completion: nil)
+        let removeHandler: AlertActionHandler = {_ in
+            self.entry?.delete(
+                success: {
+                    println("success delete")
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    let navigationController = UIApplication.sharedApplication().keyWindow?.rootViewController as UINavigationController
+                    navigationController.popViewControllerAnimated(false)
+                },
+                failure: {(error) in
+                    println(error)
+                    println("fail delete")
+                }
+            )
+            return
+        }
+        Alerts.showEntryRemoveAlert(self, removeHandler: removeHandler)
     }
     
 }

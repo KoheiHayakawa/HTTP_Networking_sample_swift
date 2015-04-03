@@ -20,6 +20,7 @@
 		55A5AADD1ACD21F600BA6140 /* KHATextViewFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AAD41ACD21F600BA6140 /* KHATextViewFormCell.swift */; };
 		55A5AAE01ACD221D00BA6140 /* EntryCreationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AADF1ACD221D00BA6140 /* EntryCreationForm.swift */; };
 		55A5AAE21ACD3C3C00BA6140 /* EntryEditForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AAE11ACD3C3C00BA6140 /* EntryEditForm.swift */; };
+		55A5AAE41ACE5C8900BA6140 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AAE31ACE5C8900BA6140 /* Alert.swift */; };
 		55D016A61AABDC7500910B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D016A51AABDC7500910B71 /* AppDelegate.swift */; };
 		55D016A81AABDC7500910B71 /* EntryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D016A71AABDC7500910B71 /* EntryListTableViewController.swift */; };
 		55D016AA1AABDC7500910B71 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D016A91AABDC7500910B71 /* EntryDetailViewController.swift */; };
@@ -57,6 +58,7 @@
 		55A5AAD41ACD21F600BA6140 /* KHATextViewFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KHATextViewFormCell.swift; sourceTree = "<group>"; };
 		55A5AADF1ACD221D00BA6140 /* EntryCreationForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryCreationForm.swift; sourceTree = "<group>"; };
 		55A5AAE11ACD3C3C00BA6140 /* EntryEditForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryEditForm.swift; sourceTree = "<group>"; };
+		55A5AAE31ACE5C8900BA6140 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		55D016A01AABDC7500910B71 /* HTTP_Networking_sample_ios_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTTP_Networking_sample_ios_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D016A41AABDC7500910B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D016A51AABDC7500910B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			children = (
 				55D016C91AABE41400910B71 /* Request.swift */,
 				55D016CB1AABE5F800910B71 /* Entry.swift */,
+				55A5AAE31ACE5C8900BA6140 /* Alert.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				55A5AAD71ACD21F600BA6140 /* KHADatePickerFormCell.swift in Sources */,
 				55A5AAC71ACD0FDF00BA6140 /* EntryListTableViewDataSource.swift in Sources */,
 				55A5AADC1ACD21F600BA6140 /* KHATextFieldFormCell.swift in Sources */,
+				55A5AAE41ACE5C8900BA6140 /* Alert.swift in Sources */,
 				55A5AADB1ACD21F600BA6140 /* KHASwitchFormCell.swift in Sources */,
 				55D016AA1AABDC7500910B71 /* EntryDetailViewController.swift in Sources */,
 				55A5AACA1ACD14EC00BA6140 /* EntryDetailView.swift in Sources */,

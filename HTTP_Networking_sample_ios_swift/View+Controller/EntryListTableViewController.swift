@@ -89,32 +89,23 @@ class EntryListTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
         if editingStyle == .Delete {
-            
-            let alert = UIAlertController(
-                title: "削除します",
-                message: "本当によろしいですか？",
-                preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(
-                title: "削除する",
-                style: .Default,
-                handler: {action in
-                    let entry = self.entries[indexPath.row]
-                    entry.delete(
-                        success: {
-                            println("success delete")
-                            self.entries.removeAtIndex(indexPath.row)
-                            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                        },
-                        failure: {(error) in
-                            println(error)
-                            println("fail delete")
-                        }
-                    )
-                    return
-            }))
-            alert.addAction(UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil))
-            presentViewController(alert, animated: true, completion: nil)
+            let removeHandler: AlertActionHandler = {_ in
+                let entry = self.entries[indexPath.row]
+                entry.delete(
+                    success: {
+                        println("success delete")
+                        self.entries.removeAtIndex(indexPath.row)
+                        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    },
+                    failure: {(error) in
+                        println(error)
+                        println("fail delete")
+                    }
+                )
+            }
+            Alerts.showEntryRemoveAlert(self, removeHandler: removeHandler)
         }
     }
     
