@@ -23,6 +23,9 @@ class EntryDetailViewController: UIViewController {
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "didTouchedEditBarButton:")
         navigationItem.rightBarButtonItem = doneButton
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didSuccessEditEntry:",
+            name: KHASuccessEditEntry, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +41,15 @@ class EntryDetailViewController: UIViewController {
         entryEditForm.entry = entry
         let navigationController = UINavigationController(rootViewController: entryEditForm)
         presentViewController(navigationController, animated: true, completion: nil)
+    }
+    
+    
+    // MARK: - Notification selector
+    
+    func didSuccessEditEntry(notification: NSNotification) {
+        if let entry = notification.userInfo?["entry"] as? Entry {
+            entryDetailView?.entry = entry
+        }
     }
 }
 

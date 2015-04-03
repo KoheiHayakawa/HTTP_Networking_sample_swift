@@ -72,6 +72,8 @@ class EntryEditForm: KHAForm {
         entry?.update(
             success: {
                 println("success update")
+                let userInfo = ["entry" : self.entry!]
+                NSNotificationCenter.defaultCenter().postNotificationName(KHASuccessEditEntry, object: nil, userInfo: userInfo)
             },
             failure: {error in
                 println("fail update")
