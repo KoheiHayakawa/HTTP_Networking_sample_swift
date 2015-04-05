@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        // setup root view
         let entryListTableViewController = EntryListTableViewController()
                 navigationController = UINavigationController(rootViewController: entryListTableViewController)
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
