@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KHAForm
 
 class EntryEditForm: KHAForm {
     
