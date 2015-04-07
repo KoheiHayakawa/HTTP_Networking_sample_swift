@@ -18,7 +18,7 @@ enum Path : String {
 class Request {
     
     private class var kBaseURL: String {
-        return "http://localhost:3000"
+        return "http://localhost:3000/v1"
     }
     
     private class func prepareRequestWithoutAuth(#method: Alamofire.Method, URL: NSURL) -> NSMutableURLRequest {
