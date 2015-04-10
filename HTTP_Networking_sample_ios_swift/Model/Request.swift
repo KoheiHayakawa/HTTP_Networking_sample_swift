@@ -13,6 +13,8 @@ typealias AlamofireCompletionHandler = ((NSURLRequest, NSHTTPURLResponse?, AnyOb
 
 enum Path : String {
     case Entries = "/entries"
+    case UserSignUp = "/users/sign_up"
+    case UserSignIn = "/users/sign_in"
 }
 
 class Request {
