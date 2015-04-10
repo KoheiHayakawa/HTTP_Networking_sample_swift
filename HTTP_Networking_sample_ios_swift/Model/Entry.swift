@@ -10,11 +10,19 @@ import UIKit
 import ObjectMapper
 import SwiftyJSON
 
-class Entry: Mappable {
+class Entry: Mappable, Printable {
     
     var id: Int?
     var title: String?
     var body: String?
+    var description: String {
+        
+        let id: Int = self.id ?? -1
+        let title: String = self.title ?? "nil"
+        let body: String = self.body ?? "nil"
+        
+        return "id: \(id), title: \(title), body: \(body)"
+    }
     
     required init(){}
     
@@ -34,11 +42,11 @@ class Entry: Mappable {
                 failure(error)
                 return
             }
-            let tweetsJson = JSON(data!)
-            let result = tweetsJson.arrayValue.map{(json) -> Entry in
+            let json = JSON(data!)
+            let entries = json.arrayValue.map{(json) -> Entry in
                 return Mapper<Entry>().map(json.dictionaryObject!)!
             }
-            success(result)
+            success(entries)
             return
         }
         Request.get(path: .Entries, completionHandler: completionHandler)
@@ -50,9 +58,9 @@ class Entry: Mappable {
                 failure(error)
                 return
             }
-            let tweetJson = JSON(data!)
-            let result = Mapper<Entry>().map(tweetJson.dictionaryObject!)!
-            success(result)
+            let json = JSON(data!)
+            let entry = Mapper<Entry>().map(json.dictionaryObject!)!
+            success(entry)
             return
         }
         let query = "/\(id)"
@@ -60,12 +68,12 @@ class Entry: Mappable {
     }
     
     func create(#success: Void -> Void, failure: NSError? -> Void) {
-        let completionHandler: AlamofireCompletionHandler = {_, _, json, error in
+        let completionHandler: AlamofireCompletionHandler = {_, _, data, error in
             if let error = error {
                 failure(error)
                 return
             }
-            if let json: AnyObject = json {
+            if let data: AnyObject = data {
                 success()
                 return
             }
@@ -79,12 +87,12 @@ class Entry: Mappable {
     }
     
     func update(#success: Void -> Void, failure: NSError? -> Void) {
-        let completionHandler: AlamofireCompletionHandler = {_, _, json, error in
+        let completionHandler: AlamofireCompletionHandler = {_, _, data, error in
             if let error = error {
                 failure(error)
                 return
             }
-            if let json: AnyObject = json {
+            if let data: AnyObject = data {
                 success()
                 return
             }
@@ -99,7 +107,7 @@ class Entry: Mappable {
     }
     
     func delete(#success: Void -> Void, failure: NSError? -> Void) {
-        let completionHandler: AlamofireCompletionHandler = {_, _, json, error in
+        let completionHandler: AlamofireCompletionHandler = {_, _, data, error in
             if let error = error {
                 failure(error)
                 return
