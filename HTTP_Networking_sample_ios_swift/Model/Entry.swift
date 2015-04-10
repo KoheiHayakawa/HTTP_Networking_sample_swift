@@ -36,7 +36,7 @@ class Entry: Mappable {
             }
             let tweetsJson = JSON(data!)
             let result = tweetsJson.arrayValue.map{(json) -> Entry in
-                return Mapper<Entry>().map(json.dictionaryObject!)
+                return Mapper<Entry>().map(json.dictionaryObject!)!
             }
             success(result)
             return
@@ -51,7 +51,7 @@ class Entry: Mappable {
                 return
             }
             let tweetJson = JSON(data!)
-            let result = Mapper<Entry>().map(tweetJson.dictionaryObject!)
+            let result = Mapper<Entry>().map(tweetJson.dictionaryObject!)!
             success(result)
             return
         }

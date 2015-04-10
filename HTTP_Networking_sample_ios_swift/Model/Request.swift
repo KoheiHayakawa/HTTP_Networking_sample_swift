@@ -41,7 +41,7 @@ class Request {
         let urlStr = kBaseURL + path.rawValue
         if let URL = NSURL(string: urlStr) {
             let request = prepareRequest(method: .GET, URL: URL)
-            Alamofire.request(request).responseJSON(completionHandler)
+            Alamofire.request(request).responseJSON(options: nil, completionHandler: completionHandler)
         }
     }
     
@@ -50,7 +50,7 @@ class Request {
             let urlStr = kBaseURL + path.rawValue + encodedQuery
             if let URL = NSURL(string: urlStr) {
                 let request = prepareRequest(method: .GET, URL: URL)
-                Alamofire.request(request).responseJSON(completionHandler)
+                Alamofire.request(request).responseJSON(options: nil, completionHandler: completionHandler)
             }
         }
     }
@@ -60,8 +60,8 @@ class Request {
         if let URL = NSURL(string: urlStr) {
             if let params = params {
                 var request = prepareRequest(method: .POST, URL: URL)
-                request = Alamofire.ParameterEncoding.JSON.encode(request, parameters: params).0 as NSMutableURLRequest
-                Alamofire.request(request).responseJSON(completionHandler)
+                request = Alamofire.ParameterEncoding.JSON.encode(request, parameters: params).0 as! NSMutableURLRequest
+                Alamofire.request(request).responseJSON(options: nil, completionHandler: completionHandler)
                 //Alamofire.request(.POST, urlStr, parameters: params, encoding: .JSON).responseJSON(handler)
             }
         }
@@ -73,8 +73,8 @@ class Request {
             if let URL = NSURL(string: urlStr) {
                 if let params = params {
                     var request = prepareRequest(method: .PATCH, URL: URL)
-                    request = Alamofire.ParameterEncoding.JSON.encode(request, parameters: params).0 as NSMutableURLRequest
-                    Alamofire.request(request).responseJSON(completionHandler)
+                    request = Alamofire.ParameterEncoding.JSON.encode(request, parameters: params).0 as! NSMutableURLRequest
+                    Alamofire.request(request).responseJSON(options: nil, completionHandler: completionHandler)
                 }
             }
         }
@@ -85,7 +85,7 @@ class Request {
             let urlStr = kBaseURL + path.rawValue + encodedQuery
             if let URL = NSURL(string: urlStr) {
                 let request = prepareRequest(method: .DELETE, URL: URL)
-                Alamofire.request(request).responseJSON(completionHandler)
+                Alamofire.request(request).responseJSON(options: nil, completionHandler: completionHandler)
             }
         }
     }

@@ -37,8 +37,8 @@ class EntryCreationForm: KHAForm {
     override func formCellsInForm(form: KHAForm) -> [[KHAFormCell]] {
         
         // setup cells
-        let cell1 = initFormCellWithType(.TextField) as KHATextFieldFormCell
-        let cell2 = initFormCellWithType(.TextView) as KHATextViewFormCell
+        let cell1 = initFormCellWithType(.TextField) as! KHATextFieldFormCell
+        let cell2 = initFormCellWithType(.TextView) as! KHATextViewFormCell
         
         // settings for each cell
         cell1.textField.placeholder = "Title"
@@ -58,8 +58,8 @@ class EntryCreationForm: KHAForm {
     
     func didTouchedDoneBarButton(sender: UIBarButtonItem) {
         
-        let cell1 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as KHATextFieldFormCell
-        let cell2 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as KHATextViewFormCell
+        let cell1 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! KHATextFieldFormCell
+        let cell2 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! KHATextViewFormCell
         
         let entry = Entry()
         entry.title = cell1.textField.text

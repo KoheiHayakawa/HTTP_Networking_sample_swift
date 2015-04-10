@@ -88,7 +88,7 @@ class EntryListTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! UITableViewCell
         let entry = entries[indexPath.row]
         cell.textLabel!.text = entry.title
         return cell

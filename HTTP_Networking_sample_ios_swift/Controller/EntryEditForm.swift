@@ -39,9 +39,9 @@ class EntryEditForm: KHAForm {
     override func formCellsInForm(form: KHAForm) -> [[KHAFormCell]] {
         
         // setup cells
-        let cell1 = initFormCellWithType(.TextField) as KHATextFieldFormCell
-        let cell2 = initFormCellWithType(.TextView) as KHATextViewFormCell
-        let cell3 = initFormCellWithType(.Button) as KHAButtonFormCell
+        let cell1 = initFormCellWithType(.TextField) as! KHATextFieldFormCell
+        let cell2 = initFormCellWithType(.TextView) as! KHATextViewFormCell
+        let cell3 = initFormCellWithType(.Button) as! KHAButtonFormCell
         
         // settings for each cell
         cell1.textField.text = entry?.title
@@ -67,8 +67,8 @@ class EntryEditForm: KHAForm {
     
     func didTouchedDoneBarButton(sender: UIBarButtonItem) {
         
-        let cell1 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as KHATextFieldFormCell
-        let cell2 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as KHATextViewFormCell
+        let cell1 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! KHATextFieldFormCell
+        let cell2 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! KHATextViewFormCell
         
         entry?.title = cell1.textField.text
         entry?.body = cell2.textView.text
@@ -94,7 +94,7 @@ class EntryEditForm: KHAForm {
                 success: {
                     println("success delete")
                     self.dismissViewControllerAnimated(true, completion: nil)
-                    let navigationController = UIApplication.sharedApplication().keyWindow?.rootViewController as UINavigationController
+                    let navigationController = UIApplication.sharedApplication().keyWindow?.rootViewController as! UINavigationController
                     navigationController.popViewControllerAnimated(false)
                 },
                 failure: {(error) in
