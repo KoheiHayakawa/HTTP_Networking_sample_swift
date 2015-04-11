@@ -11,12 +11,12 @@ import KeychainAccess
 
 private let kServiceIdentifierKey = "com.koheihayakawa"
 private let kAccessToken = "KHAAccessToken"
-private let kIsLoginingKey = "KHAIsLogining"
+private let kIsSignInKey = "KHAIsSignIn"
 
 class UserManager: NSObject {
     
     class var isSingIn: Bool {
-        return NSUserDefaults.standardUserDefaults().boolForKey(kIsLoginingKey)
+        return NSUserDefaults.standardUserDefaults().boolForKey(kIsSignInKey)
     }
     
     class var accessToken: String {
@@ -25,12 +25,12 @@ class UserManager: NSObject {
     }
 
     class func signInWithAccessToken(accessToken: String) {
-        NSUserDefaults.standardUserDefaults().setBool(true, forKey: kIsLoginingKey)
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: kIsSignInKey)
         saveAccessToken(accessToken)
     }
 
     class func signOut() {
-        NSUserDefaults.standardUserDefaults().setBool(false, forKey: kIsLoginingKey)
+        NSUserDefaults.standardUserDefaults().setBool(false, forKey: kIsSignInKey)
         let keychain = Keychain(service: kServiceIdentifierKey)
         removeAccessToken()
     }
