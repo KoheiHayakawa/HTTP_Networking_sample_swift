@@ -1,11 +1,13 @@
 PODS:
   - Alamofire (1.2.0)
+  - KeychainAccess (1.2.0)
   - KHAForm (0.0.6)
   - ObjectMapper (0.10)
   - SwiftyJSON (2.1.3)
 
 DEPENDENCIES:
   - Alamofire
+  - KeychainAccess
   - KHAForm
   - ObjectMapper
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`, branch `xcode6.3`)
@@ -22,6 +24,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: d765c5c1713aa64106b0228aaa600a1e6851f68d
+  KeychainAccess: 6ff20bd4990b4840d8bde4e977f8c58e0fe7f3c1
   KHAForm: 78757733fa9d8515fcc05e082fb1ede85ca2ca66
   ObjectMapper: 611c411d3434485c8374000a028de87be1b6038d
   SwiftyJSON: a561c2a840121085bec8a2dfeac97a360fc66901

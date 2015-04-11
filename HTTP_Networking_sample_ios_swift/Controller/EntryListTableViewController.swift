@@ -47,7 +47,7 @@ class EntryListTableViewController: UITableViewController {
             success: {user in println(user)},
             failure: {error in println(error)})
         
-        
+
     }
 
     override func viewWillAppear(animated: Bool) {

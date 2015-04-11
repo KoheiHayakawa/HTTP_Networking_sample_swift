@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		553AB26C1AD7C6960048754D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553AB26B1AD7C6960048754D /* User.swift */; };
 		5588CE731AD9345A001129F4 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5588CE721AD9345A001129F4 /* Common.swift */; };
+		5588CE751AD93610001129F4 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5588CE741AD93610001129F4 /* UserManager.swift */; };
 		55A5AAC71ACD0FDF00BA6140 /* EntryListTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AAC61ACD0FDF00BA6140 /* EntryListTableViewDataSource.swift */; };
 		55A5AACA1ACD14EC00BA6140 /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AAC91ACD14EC00BA6140 /* EntryDetailView.swift */; };
 		55A5AAE01ACD221D00BA6140 /* EntryCreationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AADF1ACD221D00BA6140 /* EntryCreationForm.swift */; };
@@ -41,6 +42,7 @@
 		4E8CF50653382B768988926D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		553AB26B1AD7C6960048754D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5588CE721AD9345A001129F4 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		5588CE741AD93610001129F4 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		55A5AAC61ACD0FDF00BA6140 /* EntryListTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryListTableViewDataSource.swift; sourceTree = "<group>"; };
 		55A5AAC91ACD14EC00BA6140 /* EntryDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDetailView.swift; sourceTree = "<group>"; };
 		55A5AADF1ACD221D00BA6140 /* EntryCreationForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryCreationForm.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				5588CE721AD9345A001129F4 /* Common.swift */,
 				55D016CB1AABE5F800910B71 /* Entry.swift */,
 				553AB26B1AD7C6960048754D /* User.swift */,
+				5588CE741AD93610001129F4 /* UserManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 			files = (
 				55D016CC1AABE5F800910B71 /* Entry.swift in Sources */,
 				55A5AAC71ACD0FDF00BA6140 /* EntryListTableViewDataSource.swift in Sources */,
+				5588CE751AD93610001129F4 /* UserManager.swift in Sources */,
 				5588CE731AD9345A001129F4 /* Common.swift in Sources */,
 				55A5AAE41ACE5C8900BA6140 /* Alert.swift in Sources */,
 				55D016AA1AABDC7500910B71 /* EntryDetailViewController.swift in Sources */,
@@ -488,6 +492,7 @@
 				INFOPLIST_FILE = "HTTP_Networking_sample_ios_swift/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -499,6 +504,7 @@
 				INFOPLIST_FILE = "HTTP_Networking_sample_ios_swift/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
