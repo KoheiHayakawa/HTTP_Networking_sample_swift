@@ -36,7 +36,7 @@ class Entry: Mappable, Printable {
         body  <- map["body"]
     }
     
-    class func getList(#success: [Entry] -> Void, failure: NSError? -> Void) {
+    class func getEntries(#success: [Entry] -> Void, failure: NSError? -> Void) {
         let completionHandler: AlamofireCompletionHandler = {_, _, data, error in
             if let error = error {
                 failure(error)
@@ -52,7 +52,7 @@ class Entry: Mappable, Printable {
         Request.get(path: .Entries, completionHandler: completionHandler)
     }
     
-    class func getByID(id: Int, success: Entry -> Void, failure: NSError? -> Void) {
+    class func getEntryByID(id: Int, success: Entry -> Void, failure: NSError? -> Void) {
         let completionHandler: AlamofireCompletionHandler = {_, _, data, error in
             if let error = error {
                 failure(error)
@@ -67,7 +67,7 @@ class Entry: Mappable, Printable {
         Request.get(path: .Entries, query: query, completionHandler: completionHandler)
     }
     
-    func create(#success: Void -> Void, failure: NSError? -> Void) {
+    func createEntry(#success: Void -> Void, failure: NSError? -> Void) {
         let completionHandler: AlamofireCompletionHandler = {_, _, data, error in
             if let error = error {
                 failure(error)
@@ -86,7 +86,7 @@ class Entry: Mappable, Printable {
         Request.post(path: .Entries, params: params, completionHandler: completionHandler)
     }
     
-    func update(#success: Void -> Void, failure: NSError? -> Void) {
+    func updateEntry(#success: Void -> Void, failure: NSError? -> Void) {
         let completionHandler: AlamofireCompletionHandler = {_, _, data, error in
             if let error = error {
                 failure(error)
@@ -106,7 +106,7 @@ class Entry: Mappable, Printable {
         Request.update(path: .Entries, query: query, params: params, completionHandler: completionHandler)
     }
     
-    func delete(#success: Void -> Void, failure: NSError? -> Void) {
+    func deleteEntry(#success: Void -> Void, failure: NSError? -> Void) {
         let completionHandler: AlamofireCompletionHandler = {_, _, data, error in
             if let error = error {
                 failure(error)

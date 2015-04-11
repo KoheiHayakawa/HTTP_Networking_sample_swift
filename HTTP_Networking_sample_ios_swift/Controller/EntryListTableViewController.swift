@@ -61,7 +61,7 @@ class EntryListTableViewController: UITableViewController {
     }
 
     private func refreshData() {
-        Entry.getList(
+        Entry.getEntries(
             success: {(entries) in
                 self.entries = entries.reverse()
                 self.tableView.reloadData()
@@ -76,7 +76,7 @@ class EntryListTableViewController: UITableViewController {
     
     func onRefresh(sender: UIRefreshControl) {
         refreshControl?.beginRefreshing()
-        Entry.getList(
+        Entry.getEntries(
             success: {(entries) in
                 self.entries = entries.reverse()
                 self.tableView.reloadData()
@@ -120,7 +120,7 @@ class EntryListTableViewController: UITableViewController {
         if editingStyle == .Delete {
             let removeHandler: AlertActionHandler = {_ in
                 let entry = self.entries[indexPath.row]
-                entry.delete(
+                entry.deleteEntry(
                     success: {
                         println("success delete")
                         self.entries.removeAtIndex(indexPath.row)

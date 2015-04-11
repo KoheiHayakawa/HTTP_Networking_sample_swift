@@ -73,7 +73,7 @@ class EntryEditForm: KHAForm {
         entry?.title = cell1.textField.text
         entry?.body = cell2.textView.text
         
-        entry?.update(
+        entry?.updateEntry(
             success: {
                 println("success update")
                 let userInfo = ["entry" : self.entry!]
@@ -90,7 +90,7 @@ class EntryEditForm: KHAForm {
     func didTouchedDeleteButton(sender: UIBarButtonItem) {
         
         let removeHandler: AlertActionHandler = {_ in
-            self.entry?.delete(
+            self.entry?.deleteEntry(
                 success: {
                     println("success delete")
                     let navigationController = UIApplication.sharedApplication().keyWindow?.rootViewController as! UINavigationController

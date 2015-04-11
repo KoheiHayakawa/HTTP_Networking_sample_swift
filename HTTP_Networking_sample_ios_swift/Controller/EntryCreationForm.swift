@@ -65,7 +65,7 @@ class EntryCreationForm: KHAForm {
         entry.title = cell1.textField.text
         entry.body = cell2.textView.text
         
-        entry.create(
+        entry.createEntry(
             success: {
                 println("success create")
             },
