@@ -10,27 +10,13 @@ import UIKit
 import ObjectMapper
 import SwiftyJSON
 
-class User: Mappable, Printable {
+class User: Common {
     
     var id: Int?
     var email: String?
     var accessToken: String?
-    var description: String {
-        
-        let id: Int = self.id ?? -1
-        let email: String = self.email ?? "nil"
-        let accessToken: String = self.accessToken ?? "nil"
-        
-        return "id: \(id), email: \(email), accessToken: \(accessToken)"
-    }
     
-    required init(){}
-    
-    required init?(_ map: Map) {
-        mapping(map)
-    }
-    
-    func mapping(map: Map) {
+    override func mapping(map: Map) {
         id    <- map["id"]
         email <- map["email"]
         accessToken <- map["access_token"]

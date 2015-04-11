@@ -10,27 +10,13 @@ import UIKit
 import ObjectMapper
 import SwiftyJSON
 
-class Entry: Mappable, Printable {
+class Entry: Common {
     
     var id: Int?
     var title: String?
     var body: String?
-    var description: String {
-        
-        let id: Int = self.id ?? -1
-        let title: String = self.title ?? "nil"
-        let body: String = self.body ?? "nil"
-        
-        return "id: \(id), title: \(title), body: \(body)"
-    }
     
-    required init(){}
-    
-    required init?(_ map: Map) {
-        mapping(map)
-    }
-    
-    func mapping(map: Map) {
+    override func mapping(map: Map) {
         id    <- map["id"]
         title <- map["title"]
         body  <- map["body"]
