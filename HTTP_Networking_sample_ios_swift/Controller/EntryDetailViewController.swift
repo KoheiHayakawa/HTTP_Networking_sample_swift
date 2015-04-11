@@ -38,6 +38,7 @@ class EntryDetailViewController: UIViewController {
     
     // Observer should be removed before the object is released
     deinit {
+        println("deinit")
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     

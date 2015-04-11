@@ -93,9 +93,9 @@ class EntryEditForm: KHAForm {
             self.entry?.delete(
                 success: {
                     println("success delete")
-                    self.dismissViewControllerAnimated(true, completion: nil)
                     let navigationController = UIApplication.sharedApplication().keyWindow?.rootViewController as! UINavigationController
                     navigationController.popViewControllerAnimated(false)
+                    self.dismissViewControllerAnimated(true, completion: nil)
                 },
                 failure: {(error) in
                     println(error)
