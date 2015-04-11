@@ -21,7 +21,10 @@ class UserManager: NSObject {
     
     class var accessToken: String {
         let keychain = Keychain(service: kServiceIdentifierKey)
-        return keychain[kAccessToken]!
+        if let token = keychain[kAccessToken] {
+            return token
+        }
+        return ""
     }
 
     class func signInWithAccessToken(accessToken: String) {

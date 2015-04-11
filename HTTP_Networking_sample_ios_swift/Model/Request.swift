@@ -32,10 +32,8 @@ class Request {
     
     private class func prepareRequest(#method:Alamofire.Method, URL: NSURL) -> NSURLRequest {
         var request = prepareRequestWithoutAuth(method: method, URL: URL)
-        
-        // auth
-        //request.setValue("authenticity_token=\"\(token)\"", forHTTPHeaderField: "Authorization")
-        
+        let accessToken = UserManager.accessToken
+        request.setValue("Token token=\"\(accessToken)\"", forHTTPHeaderField: "Authorization")
         return request
     }
     
