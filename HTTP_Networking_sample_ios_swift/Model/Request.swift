@@ -62,7 +62,6 @@ class Request {
                 var request = prepareRequest(method: .POST, URL: URL)
                 request = Alamofire.ParameterEncoding.JSON.encode(request, parameters: params).0 as! NSMutableURLRequest
                 Alamofire.request(request).responseJSON(options: nil, completionHandler: completionHandler)
-                //Alamofire.request(.POST, urlStr, parameters: params, encoding: .JSON).responseJSON(handler)
             }
         }
     }
