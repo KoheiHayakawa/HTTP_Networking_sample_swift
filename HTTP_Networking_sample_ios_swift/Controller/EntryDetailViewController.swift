@@ -35,7 +35,11 @@ class EntryDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    // Observer should be removed before the object is released
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
     
     // MARK: - Bar button action selector
     
