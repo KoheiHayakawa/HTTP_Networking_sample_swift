@@ -24,7 +24,7 @@ class EntryDetailViewController: UIViewController {
         entryDetailView?.entry = entry
         view.addSubview(entryDetailView!)
         
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "didTouchedEditBarButton:")
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "didTouchEditBarButton:")
         navigationItem.rightBarButtonItem = doneButton
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didSuccessEditEntry:",
@@ -44,7 +44,7 @@ class EntryDetailViewController: UIViewController {
     
     // MARK: - Bar button action selector
     
-    func didTouchedEditBarButton(sender: UIBarButtonItem) {
+    func didTouchEditBarButton(sender: UIBarButtonItem) {
         let entryEditForm = EntryEditForm()
         entryEditForm.entry = entry
         let navigationController = UINavigationController(rootViewController: entryEditForm)

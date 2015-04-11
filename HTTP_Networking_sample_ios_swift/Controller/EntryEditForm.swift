@@ -21,10 +21,10 @@ class EntryEditForm: KHAForm {
         
         title = "Edit Entry"
         
-        let closeButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "didTouchedCloseBarButton:")
+        let closeButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "didTouchCloseBarButton:")
         navigationItem.leftBarButtonItem = closeButton
         
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "didTouchedDoneBarButton:")
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "didTouchDoneBarButton:")
         navigationItem.rightBarButtonItem = doneButton
     }
     
@@ -53,7 +53,7 @@ class EntryEditForm: KHAForm {
         
         cell3.button.setTitle("Delete", forState: .Normal)
         cell3.button.setTitleColor(UIColor.redColor(), forState: .Normal)
-        cell3.button.addTarget(self, action: Selector("didTouchedDeleteButton:"), forControlEvents: UIControlEvents.TouchUpInside)
+        cell3.button.addTarget(self, action: Selector("didTouchDeleteButton:"), forControlEvents: UIControlEvents.TouchUpInside)
         
         return [[cell1], [cell2], [cell3]]
     }
@@ -61,11 +61,11 @@ class EntryEditForm: KHAForm {
     
     // MARK: - Bar button action selector
     
-    func didTouchedCloseBarButton(sender: UIBarButtonItem) {
+    func didTouchCloseBarButton(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func didTouchedDoneBarButton(sender: UIBarButtonItem) {
+    func didTouchDoneBarButton(sender: UIBarButtonItem) {
         
         let cell1 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! KHATextFieldFormCell
         let cell2 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! KHATextViewFormCell
@@ -87,7 +87,7 @@ class EntryEditForm: KHAForm {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func didTouchedDeleteButton(sender: UIBarButtonItem) {
+    func didTouchDeleteButton(sender: UIBarButtonItem) {
         
         let removeHandler: AlertActionHandler = {_ in
             self.entry?.deleteEntry(

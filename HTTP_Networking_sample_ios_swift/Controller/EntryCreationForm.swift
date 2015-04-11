@@ -19,10 +19,10 @@ class EntryCreationForm: KHAForm {
         
         title = "Create Entry"
         
-        let closeButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "didTouchedCloseBarButton:")
+        let closeButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "didTouchCloseBarButton:")
         navigationItem.leftBarButtonItem = closeButton
         
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "didTouchedDoneBarButton:")
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "didTouchDoneBarButton:")
         navigationItem.rightBarButtonItem = doneButton
     }
 
@@ -52,11 +52,11 @@ class EntryCreationForm: KHAForm {
     
     // MARK: - Bar button action selector
 
-    func didTouchedCloseBarButton(sender: UIBarButtonItem) {
+    func didTouchCloseBarButton(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func didTouchedDoneBarButton(sender: UIBarButtonItem) {
+    func didTouchDoneBarButton(sender: UIBarButtonItem) {
         
         let cell1 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! KHATextFieldFormCell
         let cell2 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! KHATextViewFormCell

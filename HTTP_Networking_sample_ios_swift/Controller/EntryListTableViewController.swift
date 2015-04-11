@@ -26,7 +26,7 @@ class EntryListTableViewController: UITableViewController {
         
         navigationItem.leftBarButtonItem = editButtonItem()
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "didTouchedEntryCreationBarButton:")
+        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "didTouchEntryCreationBarButton:")
         navigationItem.rightBarButtonItem = addButton
         
         // pull to reflesh
@@ -150,7 +150,7 @@ class EntryListTableViewController: UITableViewController {
     
     // MARK: - Bar button action selector
     
-    func didTouchedEntryCreationBarButton(sender: UIBarButtonItem) {
+    func didTouchEntryCreationBarButton(sender: UIBarButtonItem) {
         let entryCreationForm = EntryCreationForm()
         let navigationController = UINavigationController(rootViewController: entryCreationForm)
         presentViewController(navigationController, animated: true, completion: nil)

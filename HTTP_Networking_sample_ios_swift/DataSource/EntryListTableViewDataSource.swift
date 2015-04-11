@@ -46,7 +46,7 @@ class EntryListTableViewDataSource: NSObject, UITableViewDataSource {
                 style: .Default,
                 handler: {action in
                     let entry = self.entries[indexPath.row]
-                    entry.delete(
+                    entry.deleteEntry(
                         success: {
                             println("success delete")
                         },
@@ -62,7 +62,7 @@ class EntryListTableViewDataSource: NSObject, UITableViewDataSource {
             
             
             let entry = entries[indexPath.row]
-            entry.delete(
+            entry.deleteEntry(
                 success: {
                     println("success delete")
                 },
