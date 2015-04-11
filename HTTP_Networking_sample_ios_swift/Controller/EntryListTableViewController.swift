@@ -61,7 +61,7 @@ class EntryListTableViewController: UITableViewController {
     }
 
     private func refreshData() {
-        Entry.get(
+        Entry.getList(
             success: {(entries) in
                 self.entries = entries.reverse()
                 self.tableView.reloadData()
@@ -76,7 +76,7 @@ class EntryListTableViewController: UITableViewController {
     
     func onRefresh(sender: UIRefreshControl) {
         refreshControl?.beginRefreshing()
-        Entry.get(
+        Entry.getList(
             success: {(entries) in
                 self.entries = entries.reverse()
                 self.tableView.reloadData()

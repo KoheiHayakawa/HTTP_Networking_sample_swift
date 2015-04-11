@@ -36,7 +36,7 @@ class Entry: Mappable, Printable {
         body  <- map["body"]
     }
     
-    class func get(#success: [Entry] -> Void, failure: NSError? -> Void) {
+    class func getList(#success: [Entry] -> Void, failure: NSError? -> Void) {
         let completionHandler: AlamofireCompletionHandler = {_, _, data, error in
             if let error = error {
                 failure(error)
@@ -52,7 +52,7 @@ class Entry: Mappable, Printable {
         Request.get(path: .Entries, completionHandler: completionHandler)
     }
     
-    class func get(#id: Int, success: Entry -> Void, failure: NSError? -> Void) {
+    class func getByID(id: Int, success: Entry -> Void, failure: NSError? -> Void) {
         let completionHandler: AlamofireCompletionHandler = {_, _, data, error in
             if let error = error {
                 failure(error)
