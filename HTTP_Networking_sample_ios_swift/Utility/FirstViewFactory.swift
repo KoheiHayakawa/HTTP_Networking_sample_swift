@@ -12,9 +12,18 @@ class FirstViewFactory: NSObject {
     
     class func viewController() -> UIViewController {
         if UserManager.isSingIn {
-            let viewController = EntryListTableViewController()
-            let navigationController = UINavigationController(rootViewController: viewController)
-            return navigationController
+            
+            let entryListTableViewController = EntryListTableViewController()
+            let navigationController1 = UINavigationController(rootViewController: entryListTableViewController)
+
+            let settingsViewController = SettingsViewController()
+            let navigationController2 = UINavigationController(rootViewController: settingsViewController)
+
+            let tabBarController = UITabBarController()
+            tabBarController.setViewControllers([navigationController1, navigationController2], animated: false)
+            
+            return tabBarController
+            
         } else {
             return SignInViewController()
         }
