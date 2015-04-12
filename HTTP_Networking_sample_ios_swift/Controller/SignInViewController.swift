@@ -24,7 +24,7 @@ class SignInViewController: UIViewController, SignInViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     func signInView(signInView: SignInView, didTapSignInButton button: UIButton) {
         User.signIn(
             email: signInView.emailTextField.text,
@@ -49,4 +49,15 @@ class SignInViewController: UIViewController, SignInViewDelegate {
         //            failure: {error in println(error)})
     }
 
+    func signInView(signInView: SignInView, didTapSignUpButton button: UIButton) {
+        println("sign up")
+        
+        //        User.signUp(
+        //            email: "hhh@aaa.com",
+        //            password: "aaaa",
+        //            passwordConfirmation: "aaaa",
+        //            success: {user in println(user)},
+        //            failure: {error in println(error)})
+    }
 }
+

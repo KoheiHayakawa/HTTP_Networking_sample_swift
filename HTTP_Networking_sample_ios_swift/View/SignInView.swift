@@ -10,6 +10,7 @@ import UIKit
 
 protocol SignInViewDelegate: class {
     func signInView(signInView: SignInView, didTapSignInButton button: UIButton)
+    func signInView(signInView: SignInView, didTapSignUpButton button: UIButton)
 }
 
 class SignInView: UIView {
@@ -17,6 +18,7 @@ class SignInView: UIView {
     let emailTextField = UITextField()
     let passwordTextField = UITextField()
     private let signInButton = UIButton()
+    private let signUpButton = UIButton()
     
     weak var delegate: SignInViewDelegate? // delegate must be weak to prevent circular reference
     
@@ -146,6 +148,46 @@ class SignInView: UIView {
                 multiplier: 1,
                 constant: 54)]
         )
+        
+        signUpButton.backgroundColor = UIColor.lightGrayColor()
+        signUpButton.setTitle("Sign up", forState: .Normal)
+        signUpButton.addTarget(self, action: "didTapSignUpButton:", forControlEvents: .TouchUpInside)
+        signUpButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+        addSubview(signUpButton)
+        addConstraints([
+            NSLayoutConstraint(
+                item: signUpButton,
+                attribute: .Left,
+                relatedBy: .Equal,
+                toItem: self,
+                attribute: .Left,
+                multiplier: 1,
+                constant: 10),
+            NSLayoutConstraint(
+                item: signUpButton,
+                attribute: .Right,
+                relatedBy: .Equal,
+                toItem: self,
+                attribute: .Right,
+                multiplier: 1,
+                constant: -10),
+            NSLayoutConstraint(
+                item: signUpButton,
+                attribute: .Height,
+                relatedBy: .Equal,
+                toItem: nil,
+                attribute: .NotAnAttribute,
+                multiplier: 1,
+                constant: 44),
+            NSLayoutConstraint(
+                item: signUpButton,
+                attribute: .Bottom,
+                relatedBy: .Equal,
+                toItem: self,
+                attribute: .Bottom,
+                multiplier: 1,
+                constant: -50)]
+        )
 
     }
 
@@ -155,6 +197,10 @@ class SignInView: UIView {
     
     func didTapSignInButton(sender: UIButton) {
         delegate?.signInView(self, didTapSignInButton: sender)
+    }
+    
+    func didTapSignUpButton(sender: UIButton) {
+        delegate?.signInView(self, didTapSignUpButton: sender)
     }
 
 }
