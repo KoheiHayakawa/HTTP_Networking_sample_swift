@@ -28,23 +28,18 @@ class SettingsViewController: KHAForm {
     override func formCellsInForm(form: KHAForm) -> [[KHAFormCell]] {
         
         // setup cells
-        //let cell1 = initFormCellWithType(.TextField) as! KHATextFieldFormCell
-        //let cell2 = initFormCellWithType(.TextView) as! KHATextViewFormCell
-        let cell3 = initFormCellWithType(.Button) as! KHAButtonFormCell
+        let cell1 = KHAFormCell(style: .Value2, reuseIdentifier: "cell")
+        let cell2 = initFormCellWithType(.Button) as! KHAButtonFormCell
         
         // settings for each cell
-//        cell1.textField.text = entry?.title
-//        cell1.textField.placeholder = "Title"
-//        cell1.textField.clearButtonMode = UITextFieldViewMode.Always
-//        
-//        cell2.textView.text = entry?.body
-//        cell2.textView.placeholder = "Body"
+        cell1.textLabel?.text = "Email"
+        cell1.detailTextLabel?.text = UserManager.email
         
-        cell3.button.setTitle("Sign out", forState: .Normal)
-        cell3.button.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
-        cell3.button.addTarget(self, action: Selector("didTouchSignOutButton:"), forControlEvents: UIControlEvents.TouchUpInside)
+        cell2.button.setTitle("Sign out", forState: .Normal)
+        cell2.button.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
+        cell2.button.addTarget(self, action: Selector("didTouchSignOutButton:"), forControlEvents: UIControlEvents.TouchUpInside)
         
-        return [[cell3]]
+        return [[cell1], [cell2]]
     }
     
     
