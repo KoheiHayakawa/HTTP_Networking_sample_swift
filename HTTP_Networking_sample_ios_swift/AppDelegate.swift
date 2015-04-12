@@ -12,15 +12,13 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var navigationController: UINavigationController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         // setup root view
-        let entryListTableViewController = EntryListTableViewController()
-                navigationController = UINavigationController(rootViewController: entryListTableViewController)
+        let viewController = FirstViewFactory.viewController()
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window?.rootViewController = navigationController
+        window?.rootViewController = viewController
         window?.makeKeyAndVisible()
         
         return true
