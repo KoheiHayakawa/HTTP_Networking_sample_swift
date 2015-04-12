@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        UserManager.signOut()
+
         // setup root view
         let viewController = FirstViewFactory.viewController()
         window = UIWindow(frame: UIScreen.mainScreen().bounds)

@@ -41,6 +41,7 @@ class SettingsViewController: KHAForm {
 //        cell2.textView.placeholder = "Body"
         
         cell3.button.setTitle("Sign out", forState: .Normal)
+        cell3.button.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
         cell3.button.addTarget(self, action: Selector("didTouchSignOutButton:"), forControlEvents: UIControlEvents.TouchUpInside)
         
         return [[cell3]]
@@ -50,7 +51,10 @@ class SettingsViewController: KHAForm {
     // MARK: - Button action selector
     
     func didTouchSignOutButton(sender: UIBarButtonItem) {
-        println("sign out")
+        UserManager.signOut()
+        let viewController = FirstViewFactory.viewController()
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.changeRootViewController(viewController)
     }
 
 }
