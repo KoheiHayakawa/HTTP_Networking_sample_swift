@@ -116,7 +116,7 @@ class EntryListTableViewController: UITableViewController {
                     }
                 )
             }
-            Alerts.showEntryRemoveAlert(self, removeHandler: removeHandler)
+            Alert.showEntryRemoveAlert(self, removeHandler: removeHandler)
         }
     }
     

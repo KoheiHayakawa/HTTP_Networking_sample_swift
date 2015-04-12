@@ -104,7 +104,7 @@ class EntryEditForm: KHAForm {
             )
             return
         }
-        Alerts.showEntryRemoveAlert(self, removeHandler: removeHandler)
+        Alert.showEntryRemoveAlert(self, removeHandler: removeHandler)
     }
     
 }

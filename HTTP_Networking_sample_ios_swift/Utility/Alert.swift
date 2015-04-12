@@ -10,7 +10,7 @@ import UIKit
 
 typealias AlertActionHandler = (UIAlertAction! -> Void)
 
-class Alerts {
+class Alert {
     class func showEntryRemoveAlert(viewController: UIViewController, removeHandler: AlertActionHandler) {
         let alert = UIAlertController(
             title: "削除します",
@@ -27,6 +27,15 @@ class Alerts {
     class func showSignInFailureAlert(viewController: UIViewController) {
         let alert = UIAlertController(
             title: "Failed to sign in",
+            message: "Confirm you email or password",
+            preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        viewController.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    class func showSignUpFailureAlert(viewController: UIViewController) {
+        let alert = UIAlertController(
+            title: "Failed to sign up",
             message: "Confirm you email or password",
             preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))

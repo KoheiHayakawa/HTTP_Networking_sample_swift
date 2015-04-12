@@ -1,5 +1,5 @@
 //
-//  SignInView.swift
+//  SignUpView.swift
 //  HTTP_Networking_sample_ios_swift
 //
 //  Created by Kohei Hayakawa on 4/12/15.
@@ -8,19 +8,20 @@
 
 import UIKit
 
-protocol SignInViewDelegate: class {
-    func signInView(signInView: SignInView, didTapSignInButton button: UIButton)
-    func signInView(signInView: SignInView, didTapSignUpButton button: UIButton)
+protocol SignUpViewDelegate: class {
+    func signUpView(signInView: SignUpView, didTapSignUpButton button: UIButton)
+    func signUpView(signInView: SignUpView, didTapCancelButton button: UIButton)
 }
 
-class SignInView: UIView {
-
+class SignUpView: UIView {
+    
     let emailTextField = UITextField()
     let passwordTextField = UITextField()
-    private let signInButton = UIButton()
+    let passwordConfirmationTextField = UITextField()
     private let signUpButton = UIButton()
+    private let cancelButton = UIButton()
     
-    weak var delegate: SignInViewDelegate? // delegate must be weak to prevent circular reference
+    weak var delegate: SignUpViewDelegate? // delegate must be weak to prevent circular reference
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -72,7 +73,7 @@ class SignInView: UIView {
         
         passwordTextField.borderStyle = UITextBorderStyle.RoundedRect
         passwordTextField.placeholder = "Password"
-        passwordTextField.returnKeyType = .Go
+        passwordTextField.returnKeyType = .Next
         passwordTextField.clearButtonMode = UITextFieldViewMode.Always
         passwordTextField.secureTextEntry = true
         passwordTextField.addTarget(self, action: "passwordTextFieldEditingDidEndOnExit:", forControlEvents: UIControlEvents.EditingDidEndOnExit)
@@ -113,14 +114,17 @@ class SignInView: UIView {
                 constant: 54)]
         )
         
-        signInButton.backgroundColor = UIColor.lightGrayColor()
-        signInButton.setTitle("Sign in", forState: .Normal)
-        signInButton.addTarget(self, action: "didTapSignInButton:", forControlEvents: .TouchUpInside)
-        signInButton.setTranslatesAutoresizingMaskIntoConstraints(false)
-        addSubview(signInButton)
+        passwordConfirmationTextField.borderStyle = UITextBorderStyle.RoundedRect
+        passwordConfirmationTextField.placeholder = "Password Confirmation"
+        passwordConfirmationTextField.returnKeyType = .Go
+        passwordConfirmationTextField.clearButtonMode = UITextFieldViewMode.Always
+        passwordConfirmationTextField.secureTextEntry = true
+        passwordConfirmationTextField.addTarget(self, action: "passwordConfirmationTextFieldEditingDidEndOnExit:", forControlEvents: UIControlEvents.EditingDidEndOnExit)
+        passwordConfirmationTextField.setTranslatesAutoresizingMaskIntoConstraints(false)
+        addSubview(passwordConfirmationTextField)
         addConstraints([
             NSLayoutConstraint(
-                item: signInButton,
+                item: passwordConfirmationTextField,
                 attribute: .Left,
                 relatedBy: .Equal,
                 toItem: self,
@@ -128,7 +132,7 @@ class SignInView: UIView {
                 multiplier: 1,
                 constant: 10),
             NSLayoutConstraint(
-                item: signInButton,
+                item: passwordConfirmationTextField,
                 attribute: .Right,
                 relatedBy: .Equal,
                 toItem: self,
@@ -136,7 +140,7 @@ class SignInView: UIView {
                 multiplier: 1,
                 constant: -10),
             NSLayoutConstraint(
-                item: signInButton,
+                item: passwordConfirmationTextField,
                 attribute: .Height,
                 relatedBy: .Equal,
                 toItem: nil,
@@ -144,7 +148,7 @@ class SignInView: UIView {
                 multiplier: 1,
                 constant: 44),
             NSLayoutConstraint(
-                item: signInButton,
+                item: passwordConfirmationTextField,
                 attribute: .Top,
                 relatedBy: .Equal,
                 toItem: passwordTextField,
@@ -185,6 +189,46 @@ class SignInView: UIView {
                 constant: 44),
             NSLayoutConstraint(
                 item: signUpButton,
+                attribute: .Top,
+                relatedBy: .Equal,
+                toItem: passwordConfirmationTextField,
+                attribute: .Top,
+                multiplier: 1,
+                constant: 54)]
+        )
+        
+        cancelButton.backgroundColor = UIColor.lightGrayColor()
+        cancelButton.setTitle("Cancel", forState: .Normal)
+        cancelButton.addTarget(self, action: "didTapCancelButton:", forControlEvents: .TouchUpInside)
+        cancelButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+        addSubview(cancelButton)
+        addConstraints([
+            NSLayoutConstraint(
+                item: cancelButton,
+                attribute: .Left,
+                relatedBy: .Equal,
+                toItem: self,
+                attribute: .Left,
+                multiplier: 1,
+                constant: 10),
+            NSLayoutConstraint(
+                item: cancelButton,
+                attribute: .Right,
+                relatedBy: .Equal,
+                toItem: self,
+                attribute: .Right,
+                multiplier: 1,
+                constant: -10),
+            NSLayoutConstraint(
+                item: cancelButton,
+                attribute: .Height,
+                relatedBy: .Equal,
+                toItem: nil,
+                attribute: .NotAnAttribute,
+                multiplier: 1,
+                constant: 44),
+            NSLayoutConstraint(
+                item: cancelButton,
                 attribute: .Bottom,
                 relatedBy: .Equal,
                 toItem: self,
@@ -192,9 +236,9 @@ class SignInView: UIView {
                 multiplier: 1,
                 constant: -50)]
         )
-
+        
     }
-
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -204,15 +248,19 @@ class SignInView: UIView {
     }
     
     func passwordTextFieldEditingDidEndOnExit(sender: UITextField) {
-        didTapSignInButton(signInButton)
+        passwordConfirmationTextField.becomeFirstResponder()
     }
     
-    func didTapSignInButton(sender: UIButton) {
-        delegate?.signInView(self, didTapSignInButton: sender)
+    func passwordConfirmationTextFieldEditingDidEndOnExit(sender: UITextField) {
+        didTapSignUpButton(signUpButton)
     }
     
     func didTapSignUpButton(sender: UIButton) {
-        delegate?.signInView(self, didTapSignUpButton: sender)
+        delegate?.signUpView(self, didTapSignUpButton: sender)
+    }
+    
+    func didTapCancelButton(sender: UIButton) {
+        delegate?.signUpView(self, didTapCancelButton: sender)
     }
     
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {

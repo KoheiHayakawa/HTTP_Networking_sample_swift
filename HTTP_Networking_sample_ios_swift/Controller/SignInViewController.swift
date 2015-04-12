@@ -28,11 +28,10 @@ class SignInViewController: UIViewController, SignInViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        view.endEditing(true)
-    }
     
-    func didTapSignInButton() {
+    // MARK: Sign in view delegate
+
+    func signInView(signInView: SignInView, didTapSignInButton button: UIButton) {
         User.signIn(
             email: self.signInView!.emailTextField.text,
             password: self.signInView!.passwordTextField.text,
@@ -43,28 +42,15 @@ class SignInViewController: UIViewController, SignInViewDelegate {
                 appDelegate.changeRootViewController(viewController)
             },
             failure: {error in
-                Alerts.showSignInFailureAlert(self)
+                Alert.showSignInFailureAlert(self)
                 println(error)
             }
         )
     }
-    
-    
-    // MARK: Sign in view delegate
-
-    func signInView(signInView: SignInView, didTapSignInButton button: UIButton) {
-        didTapSignInButton()
-    }
 
     func signInView(signInView: SignInView, didTapSignUpButton button: UIButton) {
-        println("sign up")
-        
-        //        User.signUp(
-        //            email: "hhh@aaa.com",
-        //            password: "aaaa",
-        //            passwordConfirmation: "aaaa",
-        //            success: {user in println(user)},
-        //            failure: {error in println(error)})
+        let viewController = SignUpViewController()
+        presentViewController(viewController, animated: true, completion: nil)
     }
 }
 
