@@ -18,7 +18,7 @@ class SignInView: UIView {
     let passwordTextField = UITextField()
     private let signInButton = UIButton()
     
-    weak var delegate: SignInViewDelegate?
+    weak var delegate: SignInViewDelegate? // delegate must be weak to prevent circular reference
     
     override init(frame: CGRect) {
         super.init(frame: frame)
