@@ -26,8 +26,27 @@ class SignInViewController: UIViewController, SignInViewDelegate {
     }
     
     func signInView(signInView: SignInView, didTapSignInButton button: UIButton) {
-        println(signInView.emailTextField.text)
-        println(signInView.passwordTextField.text)
+        User.signIn(
+            email: signInView.emailTextField.text,
+            password: signInView.passwordTextField.text,
+            success: {user in
+                UserManager.signInWithAccessToken(user.accessToken!)
+                let viewController = FirstViewFactory.viewController()
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.changeRootViewController(viewController)
+            },
+            failure: {error in
+                Alerts.showSignInFailureAlert(self)
+                println(error)
+            }
+        )
+        
+        //        User.signUp(
+        //            email: "hhh@aaa.com",
+        //            password: "aaaa",
+        //            passwordConfirmation: "aaaa",
+        //            success: {user in println(user)},
+        //            failure: {error in println(error)})
     }
 
 }

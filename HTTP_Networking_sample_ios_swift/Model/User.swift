@@ -33,10 +33,13 @@ class User: Common {
             if let data: AnyObject = data {
                 let json = JSON(data)
                 let user = Mapper<User>().map(json.dictionaryObject!)!
-                success(user)
-                return
+                if let token = user.accessToken {
+                    success(user)
+                    return
+                }
             }
             failure(nil)
+            return
         }
         let params: [String: AnyObject] = [
             "email" : email,
@@ -57,10 +60,13 @@ class User: Common {
             if let data: AnyObject = data {
                 let json = JSON(data)
                 let user = Mapper<User>().map(json.dictionaryObject!)!
-                success(user)
-                return
+                if let token = user.accessToken {
+                    success(user)
+                    return
+                }
             }
             failure(nil)
+            return
         }
         let params: [String: AnyObject] = [
             "email" : email,

@@ -23,4 +23,13 @@ class Alerts {
         alert.addAction(UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil))
         viewController.presentViewController(alert, animated: true, completion: nil)
     }
+    
+    class func showSignInFailureAlert(viewController: UIViewController) {
+        let alert = UIAlertController(
+            title: "Failed to sign in",
+            message: "Confirm you email or password",
+            preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        viewController.presentViewController(alert, animated: true, completion: nil)
+    }
 }

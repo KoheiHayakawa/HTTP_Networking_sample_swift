@@ -11,7 +11,7 @@ import UIKit
 class FirstViewFactory: NSObject {
     
     class func viewController() -> UIViewController {
-        if !UserManager.isSingIn {
+        if UserManager.isSingIn {
             let viewController = EntryListTableViewController()
             let navigationController = UINavigationController(rootViewController: viewController)
             return navigationController

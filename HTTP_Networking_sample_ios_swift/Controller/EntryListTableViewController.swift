@@ -32,22 +32,6 @@ class EntryListTableViewController: UITableViewController {
         // pull to reflesh
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: Selector("onRefresh:"), forControlEvents: UIControlEvents.ValueChanged)
-        
-        
-//        User.signUp(
-//            email: "hhh@aaa.com",
-//            password: "aaaa",
-//            passwordConfirmation: "aaaa",
-//            success: {user in println(user)},
-//            failure: {error in println(error)})
-        
-        User.signIn(
-            email: "aaa@aaa.com",
-            password: "aaaa",
-            success: {user in println(user)},
-            failure: {error in println(error)})
-        
-
     }
 
     override func viewWillAppear(animated: Bool) {

@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
+        UserManager.signOut()
         // setup root view
         let viewController = FirstViewFactory.viewController()
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -22,6 +22,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         return true
+    }
+    
+    func changeRootViewController(viewController: UIViewController) {
+        if window != nil {
+            UIView.transitionFromView(window!.rootViewController!.view,
+                toView: viewController.view,
+                duration: 0.65,
+                options: .TransitionCrossDissolve,
+                completion: nil)
+            window!.rootViewController = viewController
+        }
+        window?.makeKeyAndVisible()
     }
 
     func applicationWillResignActive(application: UIApplication) {
