@@ -30,7 +30,9 @@ class SignInView: UIView {
         emailTextField.borderStyle = .RoundedRect
         emailTextField.placeholder = "Email"
         emailTextField.keyboardType = .EmailAddress
+        emailTextField.returnKeyType = .Next
         emailTextField.clearButtonMode = UITextFieldViewMode.Always
+        emailTextField.addTarget(self, action: "emailTextFieldEditingDidEndOnExit:", forControlEvents: UIControlEvents.EditingDidEndOnExit)
         emailTextField.setTranslatesAutoresizingMaskIntoConstraints(false)
         addSubview(emailTextField)
         addConstraints([
@@ -70,8 +72,10 @@ class SignInView: UIView {
         
         passwordTextField.borderStyle = UITextBorderStyle.RoundedRect
         passwordTextField.placeholder = "Password"
+        passwordTextField.returnKeyType = .Go
         passwordTextField.clearButtonMode = UITextFieldViewMode.Always
         passwordTextField.secureTextEntry = true
+        passwordTextField.addTarget(self, action: "passwordTextFieldEditingDidEndOnExit:", forControlEvents: UIControlEvents.EditingDidEndOnExit)
         passwordTextField.setTranslatesAutoresizingMaskIntoConstraints(false)
         addSubview(passwordTextField)
         addConstraints([
@@ -193,6 +197,14 @@ class SignInView: UIView {
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func emailTextFieldEditingDidEndOnExit(sender: UITextField) {
+        passwordTextField.becomeFirstResponder()
+    }
+    
+    func passwordTextFieldEditingDidEndOnExit(sender: UITextField) {
+        didTapSignInButton(signInButton)
     }
     
     func didTapSignInButton(sender: UIButton) {
