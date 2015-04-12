@@ -8,12 +8,16 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, SignInViewDelegate {
 
+    var signInView: SignInView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        signInView = SignInView(frame: view.frame)
+        signInView!.delegate = self
+        view.addSubview(signInView!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +25,9 @@ class SignInViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func signInView(signInView: SignInView, didTapSignInButton button: UIButton) {
+        println(signInView.emailTextField.text)
+        println(signInView.passwordTextField.text)
     }
-    */
 
 }
