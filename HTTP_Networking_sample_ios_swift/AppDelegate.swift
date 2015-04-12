@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
         // setup root view
-        let viewController = FirstViewFactory.viewController()
+        let viewController = RootViewFactory.viewController()
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()

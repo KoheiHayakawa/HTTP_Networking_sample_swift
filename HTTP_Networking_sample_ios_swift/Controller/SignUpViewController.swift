@@ -38,7 +38,7 @@ class SignUpViewController: UIViewController, SignUpViewDelegate {
             passwordConfirmation: self.signUpView!.passwordConfirmationTextField.text,
             success: {user in
                 UserManager.signInByUser(user)
-                let viewController = FirstViewFactory.viewController()
+                let viewController = RootViewFactory.viewController()
                 let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                 appDelegate.changeRootViewController(viewController)
             },

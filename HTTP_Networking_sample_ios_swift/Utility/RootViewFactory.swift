@@ -1,5 +1,5 @@
 //
-//  FirstViewFactory.swift
+//  RootViewFactory.swift
 //  HTTP_Networking_sample_ios_swift
 //
 //  Created by Kohei Hayakawa on 4/12/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewFactory: NSObject {
+class RootViewFactory: NSObject {
     
     class func viewController() -> UIViewController {
         if UserManager.isSingIn {

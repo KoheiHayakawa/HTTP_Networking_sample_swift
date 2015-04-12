@@ -47,7 +47,7 @@ class SettingsViewController: KHAForm {
     
     func didTouchSignOutButton(sender: UIBarButtonItem) {
         UserManager.signOut()
-        let viewController = FirstViewFactory.viewController()
+        let viewController = RootViewFactory.viewController()
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.changeRootViewController(viewController)
     }
