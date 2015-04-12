@@ -37,7 +37,6 @@ class SignUpViewController: UIViewController, SignUpViewDelegate {
             password: self.signUpView!.passwordTextField.text,
             passwordConfirmation: self.signUpView!.passwordConfirmationTextField.text,
             success: {user in
-                self.dismissViewControllerAnimated(false, completion: nil)
                 UserManager.signInByUser(user)
                 let viewController = FirstViewFactory.viewController()
                 let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate

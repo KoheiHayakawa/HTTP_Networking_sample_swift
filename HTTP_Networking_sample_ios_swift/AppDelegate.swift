@@ -24,15 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func changeRootViewController(viewController: UIViewController) {
-        if window != nil {
-            UIView.transitionFromView(window!.rootViewController!.view,
-                toView: viewController.view,
-                duration: 0.65,
-                options: .TransitionCrossDissolve,
-                completion: nil)
-            window!.rootViewController = viewController
-        }
+    func changeRootViewController(viewController: UIViewController) {        
+        window?.rootViewController = viewController
         window?.makeKeyAndVisible()
     }
 
