@@ -19,7 +19,7 @@ class EntryListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Entry List"
+        title = "Entries"
         
         tableView.delegate = self
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)

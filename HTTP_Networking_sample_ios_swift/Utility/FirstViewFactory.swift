@@ -15,10 +15,12 @@ class FirstViewFactory: NSObject {
             
             let entryListTableViewController = EntryListTableViewController()
             let navigationController1 = UINavigationController(rootViewController: entryListTableViewController)
+            navigationController1.tabBarItem = UITabBarItem(title: "Entries", image: nil, tag: 0)
 
             let settingsViewController = SettingsViewController()
             let navigationController2 = UINavigationController(rootViewController: settingsViewController)
-
+            navigationController2.tabBarItem = UITabBarItem(title: "Settings", image: nil, tag: 1)
+            
             let tabBarController = UITabBarController()
             tabBarController.setViewControllers([navigationController1, navigationController2], animated: false)
             
