@@ -36,7 +36,7 @@ class SignInViewController: UIViewController, SignInViewDelegate {
             email: self.signInView!.emailTextField.text,
             password: self.signInView!.passwordTextField.text,
             success: {user in
-                UserManager.signInWithAccessToken(user.accessToken!)
+                UserManager.signInByUser(user)
                 let viewController = FirstViewFactory.viewController()
                 let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                 appDelegate.changeRootViewController(viewController)
