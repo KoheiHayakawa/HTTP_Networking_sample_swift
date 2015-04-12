@@ -9,3 +9,4 @@
 import UIKit
 
 let KHASuccessEditEntry = "KHASuccessEditEntry"
+let KHADeleteEntryAtEditForm = "KHADeleteEntryAtEditForm"

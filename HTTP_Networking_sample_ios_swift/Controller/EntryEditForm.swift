@@ -93,8 +93,7 @@ class EntryEditForm: KHAForm {
             self.entry?.deleteEntry(
                 success: {
                     println("success delete")
-                    let navigationController = UIApplication.sharedApplication().keyWindow?.rootViewController as! UINavigationController
-                    navigationController.popViewControllerAnimated(false)
+                    NSNotificationCenter.defaultCenter().postNotificationName(KHADeleteEntryAtEditForm, object: nil)
                     self.dismissViewControllerAnimated(true, completion: nil)
                 },
                 failure: {(error) in

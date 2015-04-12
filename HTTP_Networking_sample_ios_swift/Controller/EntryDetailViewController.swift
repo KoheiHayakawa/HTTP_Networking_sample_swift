@@ -29,6 +29,8 @@ class EntryDetailViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didSuccessEditEntry:",
             name: KHASuccessEditEntry, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didDeleteEntryAtEditForm:",
+            name: KHADeleteEntryAtEditForm, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,6 +60,10 @@ class EntryDetailViewController: UIViewController {
         if let entry = notification.userInfo?["entry"] as? Entry {
             entryDetailView?.entry = entry
         }
+    }
+    
+    func didDeleteEntryAtEditForm(notification: NSNotification) {
+        navigationController?.popViewControllerAnimated(false)
     }
 }
 
