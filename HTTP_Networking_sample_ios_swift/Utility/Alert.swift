@@ -13,14 +13,14 @@ typealias AlertActionHandler = (UIAlertAction! -> Void)
 class Alert {
     class func showEntryRemoveAlert(viewController: UIViewController, removeHandler: AlertActionHandler) {
         let alert = UIAlertController(
-            title: "削除します",
-            message: "本当によろしいですか？",
+            title: "Detele entry",
+            message: "Are you sure?",
             preferredStyle: .Alert)
         alert.addAction(UIAlertAction(
-            title: "削除する",
+            title: "OK",
             style: .Default,
             handler: removeHandler))
-        alert.addAction(UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         viewController.presentViewController(alert, animated: true, completion: nil)
     }
     
