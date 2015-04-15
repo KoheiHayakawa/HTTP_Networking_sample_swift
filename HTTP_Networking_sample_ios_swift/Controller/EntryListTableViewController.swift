@@ -52,8 +52,8 @@ class EntryListTableViewController: UITableViewController {
                 println("success all")
             },
             failure: {(error) in
-                println(error)
                 Alert.showNoInternetConnectionAvailableAlertWithTitle("Cannot Get Entries", target: self)
+                println(error)
                 println("fail all")
             }
         )
@@ -69,6 +69,7 @@ class EntryListTableViewController: UITableViewController {
                 println("success all")
             },
             failure: {(error) in
+                Alert.showNoInternetConnectionAvailableAlertWithTitle("Cannot Get Entries", target: self)
                 self.refreshControl?.endRefreshing()
                 println(error)
                 println("fail all")

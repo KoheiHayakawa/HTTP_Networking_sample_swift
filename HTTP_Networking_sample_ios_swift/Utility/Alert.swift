@@ -43,8 +43,14 @@ class Alert {
     }
     
     class func showNoInternetConnectionAvailableAlertWithTitle(title: String, target: UIViewController) {
-        let alertController = UIAlertController(title: title, message: "No internet connection available", preferredStyle: .Alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        let alertController = UIAlertController(
+            title: title,
+            message: "No internet connection available.",
+            preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(
+            title: "OK",
+            style: .Default,
+            handler: nil))
         target.presentViewController(alertController, animated: true, completion: nil)
     }
 }
