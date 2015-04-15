@@ -53,6 +53,7 @@ class EntryListTableViewController: UITableViewController {
             },
             failure: {(error) in
                 println(error)
+                Alert.showNoInternetConnectionAvailableAlertWithTitle("Cannot Get Entries", target: self)
                 println("fail all")
             }
         )
