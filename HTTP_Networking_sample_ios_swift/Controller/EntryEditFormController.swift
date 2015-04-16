@@ -9,7 +9,7 @@
 import UIKit
 import KHAForm
 
-class EntryEditForm: KHAForm {
+class EntryEditFormController: KHAFormController, KHAFormDataSource {
     
     var entry: Entry?
     
@@ -34,14 +34,14 @@ class EntryEditForm: KHAForm {
     }
     
     
-    // MARK: - KHAForm delegate
+    // MARK: - KHAForm data source
     
-    override func formCellsInForm(form: KHAForm) -> [[KHAFormCell]] {
+    override func formCellsInForm(form: KHAFormController) -> [[KHAFormCell]] {
         
         // setup cells
-        let cell1 = initFormCellWithType(.TextField) as! KHATextFieldFormCell
-        let cell2 = initFormCellWithType(.TextView) as! KHATextViewFormCell
-        let cell3 = initFormCellWithType(.Button) as! KHAButtonFormCell
+        let cell1 = KHAFormCell.formCellWithType(.TextField)
+        let cell2 = KHAFormCell.formCellWithType(.TextView)
+        let cell3 = KHAFormCell.formCellWithType(.Button)
         
         // settings for each cell
         cell1.textField.text = entry?.title
@@ -67,8 +67,8 @@ class EntryEditForm: KHAForm {
     
     func didTouchDoneBarButton(sender: UIBarButtonItem) {
         
-        let cell1 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! KHATextFieldFormCell
-        let cell2 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! KHATextViewFormCell
+        let cell1 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 0))
+        let cell2 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 1))
         
         entry?.title = cell1.textField.text
         entry?.body = cell2.textView.text

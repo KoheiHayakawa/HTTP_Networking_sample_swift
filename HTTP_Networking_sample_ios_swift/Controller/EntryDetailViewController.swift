@@ -47,7 +47,7 @@ class EntryDetailViewController: UIViewController {
     // MARK: - Bar button action selector
     
     func didTouchEditBarButton(sender: UIBarButtonItem) {
-        let entryEditForm = EntryEditForm()
+        let entryEditForm = EntryEditFormController()
         entryEditForm.entry = entry
         let navigationController = UINavigationController(rootViewController: entryEditForm)
         presentViewController(navigationController, animated: true, completion: nil)

@@ -18,8 +18,8 @@
 		5588CE751AD93610001129F4 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5588CE741AD93610001129F4 /* UserManager.swift */; };
 		55A5AAC71ACD0FDF00BA6140 /* EntryListTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AAC61ACD0FDF00BA6140 /* EntryListTableViewDataSource.swift */; };
 		55A5AACA1ACD14EC00BA6140 /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AAC91ACD14EC00BA6140 /* EntryDetailView.swift */; };
-		55A5AAE01ACD221D00BA6140 /* EntryCreationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AADF1ACD221D00BA6140 /* EntryCreationForm.swift */; };
-		55A5AAE21ACD3C3C00BA6140 /* EntryEditForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AAE11ACD3C3C00BA6140 /* EntryEditForm.swift */; };
+		55A5AAE01ACD221D00BA6140 /* EntryCreationFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AADF1ACD221D00BA6140 /* EntryCreationFormController.swift */; };
+		55A5AAE21ACD3C3C00BA6140 /* EntryEditFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AAE11ACD3C3C00BA6140 /* EntryEditFormController.swift */; };
 		55A5AAE41ACE5C8900BA6140 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AAE31ACE5C8900BA6140 /* Alert.swift */; };
 		55A5AAE71ACE6A6100BA6140 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5AAE61ACE6A6100BA6140 /* Notification.swift */; };
 		55D016A61AABDC7500910B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D016A51AABDC7500910B71 /* AppDelegate.swift */; };
@@ -57,8 +57,8 @@
 		5588CE741AD93610001129F4 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		55A5AAC61ACD0FDF00BA6140 /* EntryListTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryListTableViewDataSource.swift; sourceTree = "<group>"; };
 		55A5AAC91ACD14EC00BA6140 /* EntryDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDetailView.swift; sourceTree = "<group>"; };
-		55A5AADF1ACD221D00BA6140 /* EntryCreationForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryCreationForm.swift; sourceTree = "<group>"; };
-		55A5AAE11ACD3C3C00BA6140 /* EntryEditForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryEditForm.swift; sourceTree = "<group>"; };
+		55A5AADF1ACD221D00BA6140 /* EntryCreationFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryCreationFormController.swift; sourceTree = "<group>"; };
+		55A5AAE11ACD3C3C00BA6140 /* EntryEditFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryEditFormController.swift; sourceTree = "<group>"; };
 		55A5AAE31ACE5C8900BA6140 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		55A5AAE61ACE6A6100BA6140 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		55D016A01AABDC7500910B71 /* HTTP_Networking_sample_ios_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTTP_Networking_sample_ios_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,8 +203,8 @@
 				553B03081ADA47E8003C7239 /* SignUpViewController.swift */,
 				55D016A71AABDC7500910B71 /* EntryListTableViewController.swift */,
 				55D016A91AABDC7500910B71 /* EntryDetailViewController.swift */,
-				55A5AADF1ACD221D00BA6140 /* EntryCreationForm.swift */,
-				55A5AAE11ACD3C3C00BA6140 /* EntryEditForm.swift */,
+				55A5AADF1ACD221D00BA6140 /* EntryCreationFormController.swift */,
+				55A5AAE11ACD3C3C00BA6140 /* EntryEditFormController.swift */,
 				553B030C1ADA53D0003C7239 /* SettingsViewController.swift */,
 			);
 			path = Controller;
@@ -389,10 +389,10 @@
 				553B03071ADA24A9003C7239 /* SignInView.swift in Sources */,
 				55A5AACA1ACD14EC00BA6140 /* EntryDetailView.swift in Sources */,
 				55D016CA1AABE41400910B71 /* Request.swift in Sources */,
-				55A5AAE21ACD3C3C00BA6140 /* EntryEditForm.swift in Sources */,
+				55A5AAE21ACD3C3C00BA6140 /* EntryEditFormController.swift in Sources */,
 				55D016A81AABDC7500910B71 /* EntryListTableViewController.swift in Sources */,
 				553AB26C1AD7C6960048754D /* User.swift in Sources */,
-				55A5AAE01ACD221D00BA6140 /* EntryCreationForm.swift in Sources */,
+				55A5AAE01ACD221D00BA6140 /* EntryCreationFormController.swift in Sources */,
 				553B03051ADA22C4003C7239 /* SignInViewController.swift in Sources */,
 				55A5AAE71ACE6A6100BA6140 /* Notification.swift in Sources */,
 				55D016A61AABDC7500910B71 /* AppDelegate.swift in Sources */,

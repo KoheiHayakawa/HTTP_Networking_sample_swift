@@ -9,7 +9,7 @@
 import UIKit
 import KHAForm
 
-class EntryCreationForm: KHAForm {
+class EntryCreationFormController: KHAFormController, KHAFormDataSource {
 
     
     // MARK: - View lifecycle
@@ -32,13 +32,13 @@ class EntryCreationForm: KHAForm {
     }
     
     
-    // MARK: - KHAForm delegate
+    // MARK: - KHAForm data source
 
-    override func formCellsInForm(form: KHAForm) -> [[KHAFormCell]] {
+    override func formCellsInForm(form: KHAFormController) -> [[KHAFormCell]] {
         
         // setup cells
-        let cell1 = initFormCellWithType(.TextField) as! KHATextFieldFormCell
-        let cell2 = initFormCellWithType(.TextView) as! KHATextViewFormCell
+        let cell1 = KHAFormCell.formCellWithType(.TextField)
+        let cell2 = KHAFormCell.formCellWithType(.TextView)
         
         // settings for each cell
         cell1.textField.placeholder = "Title"
@@ -58,8 +58,8 @@ class EntryCreationForm: KHAForm {
     
     func didTouchDoneBarButton(sender: UIBarButtonItem) {
         
-        let cell1 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! KHATextFieldFormCell
-        let cell2 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! KHATextViewFormCell
+        let cell1 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 0))
+        let cell2 = formCellForIndexPath(NSIndexPath(forRow: 0, inSection: 1))
         
         let entry = Entry()
         entry.title = cell1.textField.text

@@ -137,7 +137,7 @@ class EntryListTableViewController: UITableViewController {
     // MARK: - Bar button action selector
     
     func didTouchEntryCreationBarButton(sender: UIBarButtonItem) {
-        let entryCreationForm = EntryCreationForm()
+        let entryCreationForm = EntryCreationFormController()
         let navigationController = UINavigationController(rootViewController: entryCreationForm)
         presentViewController(navigationController, animated: true, completion: nil)
     }
