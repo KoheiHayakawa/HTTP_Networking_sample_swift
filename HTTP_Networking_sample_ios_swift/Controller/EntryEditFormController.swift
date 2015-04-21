@@ -9,7 +9,7 @@
 import UIKit
 import KHAForm
 
-class EntryEditFormController: KHAFormController, KHAFormDataSource {
+class EntryEditFormController: KHAFormViewController, KHAFormViewDataSource {
     
     var entry: Entry?
     
@@ -36,12 +36,12 @@ class EntryEditFormController: KHAFormController, KHAFormDataSource {
     
     // MARK: - KHAForm data source
     
-    override func formCellsInForm(form: KHAFormController) -> [[KHAFormCell]] {
+    override func formCellsInForm(form: KHAFormViewController) -> [[KHAFormCell]] {
         
         // setup cells
-        let cell1 = KHAFormCell.formCellWithType(.TextField)
-        let cell2 = KHAFormCell.formCellWithType(.TextView)
-        let cell3 = KHAFormCell.formCellWithType(.Button)
+        let cell1 = dequeueReusableFormCellWithType(.TextField)
+        let cell2 = dequeueReusableFormCellWithType(.TextView)
+        let cell3 = dequeueReusableFormCellWithType(.Button)
         
         // settings for each cell
         cell1.textField.text = entry?.title

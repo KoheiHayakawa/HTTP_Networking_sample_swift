@@ -9,7 +9,7 @@
 import UIKit
 import KHAForm
 
-class SettingsViewController: KHAFormController, KHAFormDataSource {
+class SettingsViewController: KHAFormViewController, KHAFormViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +25,11 @@ class SettingsViewController: KHAFormController, KHAFormDataSource {
     
     // MARK: - KHAForm data source
     
-    override func formCellsInForm(form: KHAFormController) -> [[KHAFormCell]] {
+    override func formCellsInForm(form: KHAFormViewController) -> [[KHAFormCell]] {
         
         // setup cells
         let cell1 = KHAFormCell(style: .Value2, reuseIdentifier: "cell")
-        let cell2 = KHAFormCell.formCellWithType(.Button)
+        let cell2 = dequeueReusableFormCellWithType(.Button)
         
         // settings for each cell
         cell1.textLabel?.text = "Email"

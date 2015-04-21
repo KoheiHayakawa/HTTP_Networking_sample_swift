@@ -9,7 +9,7 @@
 import UIKit
 import KHAForm
 
-class EntryCreationFormController: KHAFormController, KHAFormDataSource {
+class EntryCreationFormController: KHAFormViewController, KHAFormViewDataSource {
 
     
     // MARK: - View lifecycle
@@ -34,11 +34,11 @@ class EntryCreationFormController: KHAFormController, KHAFormDataSource {
     
     // MARK: - KHAForm data source
 
-    override func formCellsInForm(form: KHAFormController) -> [[KHAFormCell]] {
+    override func formCellsInForm(form: KHAFormViewController) -> [[KHAFormCell]] {
         
         // setup cells
-        let cell1 = KHAFormCell.formCellWithType(.TextField)
-        let cell2 = KHAFormCell.formCellWithType(.TextView)
+        let cell1 = dequeueReusableFormCellWithType(.TextField)
+        let cell2 = dequeueReusableFormCellWithType(.TextView)
         
         // settings for each cell
         cell1.textField.placeholder = "Title"
