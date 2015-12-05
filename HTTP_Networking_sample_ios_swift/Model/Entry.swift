@@ -22,13 +22,13 @@ class Entry: Common {
         body  <- map["body"]
     }
     
-    class func getEntries(#success: [Entry] -> Void, failure: NSError? -> Void) {
-        let completionHandler: AlamofireCompletionHandler = {_, _, data, error in
-            if let error = error {
+    class func getEntries(success success: [Entry] -> Void, failure: NSError? -> Void) {
+        let completionHandler: AlamofireCompletionHandler = {response in
+            if let error = response.result.error {
                 failure(error)
                 return
             }
-            let json = JSON(data!)
+            let json = JSON(response.result.value!)
             let entries = json.arrayValue.map{(json) -> Entry in
                 return Mapper<Entry>().map(json.dictionaryObject!)!
             }
@@ -39,12 +39,12 @@ class Entry: Common {
     }
     
     class func getEntryByID(id: Int, success: Entry -> Void, failure: NSError? -> Void) {
-        let completionHandler: AlamofireCompletionHandler = {_, _, data, error in
-            if let error = error {
+        let completionHandler: AlamofireCompletionHandler = {response in
+            if let error = response.result.error {
                 failure(error)
                 return
             }
-            let json = JSON(data!)
+            let json = JSON(response.result.value!)
             let entry = Mapper<Entry>().map(json.dictionaryObject!)!
             success(entry)
             return
@@ -53,13 +53,13 @@ class Entry: Common {
         Request.get(path: .Entries, query: query, completionHandler: completionHandler)
     }
     
-    func createEntry(#success: Void -> Void, failure: NSError? -> Void) {
-        let completionHandler: AlamofireCompletionHandler = {_, _, data, error in
-            if let error = error {
+    func createEntry(success success: Void -> Void, failure: NSError? -> Void) {
+        let completionHandler: AlamofireCompletionHandler = {response in
+            if let error = response.result.error {
                 failure(error)
                 return
             }
-            if let data: AnyObject = data {
+            if let _: AnyObject = response.result.value {
                 success()
                 return
             }
@@ -72,13 +72,13 @@ class Entry: Common {
         Request.post(path: .Entries, params: params, completionHandler: completionHandler)
     }
     
-    func updateEntry(#success: Void -> Void, failure: NSError? -> Void) {
-        let completionHandler: AlamofireCompletionHandler = {_, _, data, error in
-            if let error = error {
+    func updateEntry(success success: Void -> Void, failure: NSError? -> Void) {
+        let completionHandler: AlamofireCompletionHandler = {response in
+            if let error = response.result.error {
                 failure(error)
                 return
             }
-            if let data: AnyObject = data {
+            if let _: AnyObject = response.result.value {
                 success()
                 return
             }
@@ -92,9 +92,9 @@ class Entry: Common {
         Request.update(path: .Entries, query: query, params: params, completionHandler: completionHandler)
     }
     
-    func deleteEntry(#success: Void -> Void, failure: NSError? -> Void) {
-        let completionHandler: AlamofireCompletionHandler = {_, _, data, error in
-            if let error = error {
+    func deleteEntry(success success: Void -> Void, failure: NSError? -> Void) {
+        let completionHandler: AlamofireCompletionHandler = {response in
+            if let error = response.result.error {
                 failure(error)
                 return
             }

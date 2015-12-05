@@ -9,7 +9,7 @@
 import UIKit
 import KHAForm
 
-class EntryEditFormController: KHAFormViewController, KHAFormViewDataSource {
+class EntryEditFormController: KHAFormViewController {
     
     var entry: Entry?
     
@@ -75,12 +75,12 @@ class EntryEditFormController: KHAFormViewController, KHAFormViewDataSource {
         
         entry?.updateEntry(
             success: {
-                println("success update")
+                print("success update")
                 let userInfo = ["entry" : self.entry!]
                 NSNotificationCenter.defaultCenter().postNotificationName(KHASuccessEditEntry, object: nil, userInfo: userInfo)
             },
             failure: {error in
-                println("fail update")
+                print("fail update")
             }
         )
 
@@ -92,13 +92,13 @@ class EntryEditFormController: KHAFormViewController, KHAFormViewDataSource {
         let removeHandler: AlertActionHandler = {_ in
             self.entry?.deleteEntry(
                 success: {
-                    println("success delete")
+                    print("success delete")
                     NSNotificationCenter.defaultCenter().postNotificationName(KHADeleteEntryAtEditForm, object: nil)
                     self.dismissViewControllerAnimated(true, completion: nil)
                 },
                 failure: {(error) in
-                    println(error)
-                    println("fail delete")
+                    print(error)
+                    print("fail delete")
                 }
             )
             return

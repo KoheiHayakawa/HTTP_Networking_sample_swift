@@ -33,8 +33,8 @@ class SignInViewController: UIViewController, SignInViewDelegate {
 
     func signInView(signInView: SignInView, didTapSignInButton button: UIButton) {
         User.signIn(
-            email: self.signInView!.emailTextField.text,
-            password: self.signInView!.passwordTextField.text,
+            email: self.signInView!.emailTextField.text!,
+            password: self.signInView!.passwordTextField.text!,
             success: {user in
                 UserManager.signInByUser(user)
                 let viewController = RootViewFactory.viewController()
@@ -43,7 +43,7 @@ class SignInViewController: UIViewController, SignInViewDelegate {
             },
             failure: {error in
                 Alert.showSignInFailureAlert(self)
-                println(error)
+                print(error)
             }
         )
     }

@@ -47,14 +47,14 @@ class EntryListTableViewController: UITableViewController {
     private func refreshData() {
         Entry.getEntries(
             success: {(entries) in
-                self.entries = entries.reverse()
+                self.entries = Array(entries.reverse())
                 self.tableView.reloadData()
-                println("success all")
+                print("success all")
             },
             failure: {(error) in
                 Alert.showNoInternetConnectionAvailableAlertWithTitle("Cannot Get Entries", target: self)
-                println(error)
-                println("fail all")
+                print(error)
+                print("fail all")
             }
         )
     }
@@ -63,16 +63,16 @@ class EntryListTableViewController: UITableViewController {
         refreshControl?.beginRefreshing()
         Entry.getEntries(
             success: {(entries) in
-                self.entries = entries.reverse()
+                self.entries = Array(entries.reverse())
                 self.tableView.reloadData()
                 self.refreshControl?.endRefreshing()
-                println("success all")
+                print("success all")
             },
             failure: {(error) in
                 Alert.showNoInternetConnectionAvailableAlertWithTitle("Cannot Get Entries", target: self)
                 self.refreshControl?.endRefreshing()
-                println(error)
-                println("fail all")
+                print(error)
+                print("fail all")
             }
         )
     }
@@ -90,7 +90,7 @@ class EntryListTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)! as UITableViewCell
         let entry = entries[indexPath.row]
         cell.textLabel!.text = entry.title
         return cell
@@ -108,13 +108,13 @@ class EntryListTableViewController: UITableViewController {
                 let entry = self.entries[indexPath.row]
                 entry.deleteEntry(
                     success: {
-                        println("success delete")
+                        print("success delete")
                         self.entries.removeAtIndex(indexPath.row)
                         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
                     },
                     failure: {(error) in
-                        println(error)
-                        println("fail delete")
+                        print(error)
+                        print("fail delete")
                     }
                 )
             }

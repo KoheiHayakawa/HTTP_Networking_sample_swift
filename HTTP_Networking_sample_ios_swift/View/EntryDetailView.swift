@@ -27,7 +27,7 @@ class EntryDetailView: UIView {
         
         backgroundColor = UIColor.whiteColor()
         
-        titleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(titleLabel)
         addConstraints([
             NSLayoutConstraint(
@@ -64,7 +64,7 @@ class EntryDetailView: UIView {
                 constant: 44)]
         )
         
-        bodyLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        bodyLabel.translatesAutoresizingMaskIntoConstraints = false
         bodyLabel.numberOfLines = 0
         addSubview(bodyLabel)
         addConstraints([
@@ -95,7 +95,7 @@ class EntryDetailView: UIView {
         )
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

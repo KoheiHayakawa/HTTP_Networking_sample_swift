@@ -23,7 +23,7 @@ class EntryListTableViewDataSource: NSObject, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)! as UITableViewCell
         let entry = entries[indexPath.row]
         cell.textLabel!.text = entry.title
         return cell
@@ -48,11 +48,11 @@ class EntryListTableViewDataSource: NSObject, UITableViewDataSource {
                     let entry = self.entries[indexPath.row]
                     entry.deleteEntry(
                         success: {
-                            println("success delete")
+                            print("success delete")
                         },
                         failure: {(error) in
-                            println(error)
-                            println("fail delete")
+                            print(error)
+                            print("fail delete")
                         }
                     )
                     return
@@ -64,11 +64,11 @@ class EntryListTableViewDataSource: NSObject, UITableViewDataSource {
             let entry = entries[indexPath.row]
             entry.deleteEntry(
                 success: {
-                    println("success delete")
+                    print("success delete")
                 },
                 failure: {(error) in
-                    println(error)
-                    println("fail delete")
+                    print(error)
+                    print("fail delete")
                 }
             )
             entries.removeAtIndex(indexPath.row)

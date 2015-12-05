@@ -34,7 +34,7 @@ class SignUpView: UIView {
         emailTextField.returnKeyType = .Next
         emailTextField.clearButtonMode = UITextFieldViewMode.Always
         emailTextField.addTarget(self, action: "emailTextFieldEditingDidEndOnExit:", forControlEvents: UIControlEvents.EditingDidEndOnExit)
-        emailTextField.setTranslatesAutoresizingMaskIntoConstraints(false)
+        emailTextField.translatesAutoresizingMaskIntoConstraints = false
         addSubview(emailTextField)
         addConstraints([
             NSLayoutConstraint(
@@ -77,7 +77,7 @@ class SignUpView: UIView {
         passwordTextField.clearButtonMode = UITextFieldViewMode.Always
         passwordTextField.secureTextEntry = true
         passwordTextField.addTarget(self, action: "passwordTextFieldEditingDidEndOnExit:", forControlEvents: UIControlEvents.EditingDidEndOnExit)
-        passwordTextField.setTranslatesAutoresizingMaskIntoConstraints(false)
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         addSubview(passwordTextField)
         addConstraints([
             NSLayoutConstraint(
@@ -120,7 +120,7 @@ class SignUpView: UIView {
         passwordConfirmationTextField.clearButtonMode = UITextFieldViewMode.Always
         passwordConfirmationTextField.secureTextEntry = true
         passwordConfirmationTextField.addTarget(self, action: "passwordConfirmationTextFieldEditingDidEndOnExit:", forControlEvents: UIControlEvents.EditingDidEndOnExit)
-        passwordConfirmationTextField.setTranslatesAutoresizingMaskIntoConstraints(false)
+        passwordConfirmationTextField.translatesAutoresizingMaskIntoConstraints = false
         addSubview(passwordConfirmationTextField)
         addConstraints([
             NSLayoutConstraint(
@@ -160,7 +160,7 @@ class SignUpView: UIView {
         signUpButton.backgroundColor = UIColor.lightGrayColor()
         signUpButton.setTitle("Sign up", forState: .Normal)
         signUpButton.addTarget(self, action: "didTapSignUpButton:", forControlEvents: .TouchUpInside)
-        signUpButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+        signUpButton.translatesAutoresizingMaskIntoConstraints = false
         addSubview(signUpButton)
         addConstraints([
             NSLayoutConstraint(
@@ -200,7 +200,7 @@ class SignUpView: UIView {
         cancelButton.backgroundColor = UIColor.lightGrayColor()
         cancelButton.setTitle("Cancel", forState: .Normal)
         cancelButton.addTarget(self, action: "didTapCancelButton:", forControlEvents: .TouchUpInside)
-        cancelButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
         addSubview(cancelButton)
         addConstraints([
             NSLayoutConstraint(
@@ -239,7 +239,7 @@ class SignUpView: UIView {
         
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -263,7 +263,7 @@ class SignUpView: UIView {
         delegate?.signUpView(self, didTapCancelButton: sender)
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         endEditing(true)
     }
 

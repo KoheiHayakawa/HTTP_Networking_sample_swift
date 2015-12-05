@@ -9,7 +9,7 @@
 import UIKit
 import ObjectMapper
 
-class Common: Mappable, Printable {
+class Common: Mappable, CustomStringConvertible {
     
     var description: String {
         return Mapper().toJSONString(self, prettyPrint: true)!

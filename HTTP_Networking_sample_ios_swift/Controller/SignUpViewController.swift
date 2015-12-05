@@ -33,9 +33,9 @@ class SignUpViewController: UIViewController, SignUpViewDelegate {
     
     func signUpView(signUpView: SignUpView, didTapSignUpButton button: UIButton) {
         User.signUp(
-            email: self.signUpView!.emailTextField.text,
-            password: self.signUpView!.passwordTextField.text,
-            passwordConfirmation: self.signUpView!.passwordConfirmationTextField.text,
+            email: self.signUpView!.emailTextField.text!,
+            password: self.signUpView!.passwordTextField.text!,
+            passwordConfirmation: self.signUpView!.passwordConfirmationTextField.text!,
             success: {user in
                 UserManager.signInByUser(user)
                 let viewController = RootViewFactory.viewController()
@@ -44,7 +44,7 @@ class SignUpViewController: UIViewController, SignUpViewDelegate {
             },
             failure: {error in
                 Alert.showSignUpFailureAlert(self)
-                println(error)
+                print(error)
             }
         )
     }

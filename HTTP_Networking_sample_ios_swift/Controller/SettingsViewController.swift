@@ -9,7 +9,7 @@
 import UIKit
 import KHAForm
 
-class SettingsViewController: KHAFormViewController, KHAFormViewDataSource {
+class SettingsViewController: KHAFormViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -33,7 +33,7 @@ class SignInView: UIView {
         emailTextField.returnKeyType = .Next
         emailTextField.clearButtonMode = UITextFieldViewMode.Always
         emailTextField.addTarget(self, action: "emailTextFieldEditingDidEndOnExit:", forControlEvents: UIControlEvents.EditingDidEndOnExit)
-        emailTextField.setTranslatesAutoresizingMaskIntoConstraints(false)
+        emailTextField.translatesAutoresizingMaskIntoConstraints = false
         addSubview(emailTextField)
         addConstraints([
             NSLayoutConstraint(
@@ -76,7 +76,7 @@ class SignInView: UIView {
         passwordTextField.clearButtonMode = UITextFieldViewMode.Always
         passwordTextField.secureTextEntry = true
         passwordTextField.addTarget(self, action: "passwordTextFieldEditingDidEndOnExit:", forControlEvents: UIControlEvents.EditingDidEndOnExit)
-        passwordTextField.setTranslatesAutoresizingMaskIntoConstraints(false)
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         addSubview(passwordTextField)
         addConstraints([
             NSLayoutConstraint(
@@ -116,7 +116,7 @@ class SignInView: UIView {
         signInButton.backgroundColor = UIColor.lightGrayColor()
         signInButton.setTitle("Sign in", forState: .Normal)
         signInButton.addTarget(self, action: "didTapSignInButton:", forControlEvents: .TouchUpInside)
-        signInButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+        signInButton.translatesAutoresizingMaskIntoConstraints = false
         addSubview(signInButton)
         addConstraints([
             NSLayoutConstraint(
@@ -156,7 +156,7 @@ class SignInView: UIView {
         signUpButton.backgroundColor = UIColor.lightGrayColor()
         signUpButton.setTitle("Sign up", forState: .Normal)
         signUpButton.addTarget(self, action: "didTapSignUpButton:", forControlEvents: .TouchUpInside)
-        signUpButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+        signUpButton.translatesAutoresizingMaskIntoConstraints = false
         addSubview(signUpButton)
         addConstraints([
             NSLayoutConstraint(
@@ -195,7 +195,7 @@ class SignInView: UIView {
 
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -215,7 +215,7 @@ class SignInView: UIView {
         delegate?.signInView(self, didTapSignUpButton: sender)
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         endEditing(true)
     }
 

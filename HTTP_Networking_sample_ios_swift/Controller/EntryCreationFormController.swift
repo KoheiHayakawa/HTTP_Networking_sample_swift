@@ -9,7 +9,7 @@
 import UIKit
 import KHAForm
 
-class EntryCreationFormController: KHAFormViewController, KHAFormViewDataSource {
+class EntryCreationFormController: KHAFormViewController {
 
     
     // MARK: - View lifecycle
@@ -67,11 +67,11 @@ class EntryCreationFormController: KHAFormViewController, KHAFormViewDataSource 
         
         entry.createEntry(
             success: {
-                println("success create")
+                print("success create")
             },
             failure: {(error) in
-                println("fail create")
-                println(error)
+                print("fail create")
+                print(error)
             }
         )
         dismissViewControllerAnimated(true, completion: nil)

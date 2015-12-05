@@ -22,18 +22,18 @@ class User: Common {
         accessToken <- map["access_token"]
     }
     
-    class func signUp(#email: String, password: String, passwordConfirmation: String, success: User -> Void, failure: NSError? -> Void) {
-        let completionHandler: AlamofireCompletionHandler = {_, _, data, error in
+    class func signUp(email email: String, password: String, passwordConfirmation: String, success: User -> Void, failure: NSError? -> Void) {
+        let completionHandler: AlamofireCompletionHandler = {response in
             
             // TODO: Json error handling
-            if let error = error {
+            if let error = response.result.error {
                 failure(error)
                 return
             }
-            if let data: AnyObject = data {
+            if let data: AnyObject = response.result.value {
                 let json = JSON(data)
                 let user = Mapper<User>().map(json.dictionaryObject!)!
-                if let token = user.accessToken {
+                if let _ = user.accessToken {
                     success(user)
                     return
                 }
@@ -49,18 +49,18 @@ class User: Common {
         Request.post(path: .UserSignUp, params: params, completionHandler: completionHandler)
     }
     
-    class func signIn(#email: String, password: String, success: User -> Void, failure: NSError? -> Void) {
-        let completionHandler: AlamofireCompletionHandler = {_, _, data, error in
+    class func signIn(email email: String, password: String, success: User -> Void, failure: NSError? -> Void) {
+        let completionHandler: AlamofireCompletionHandler = {response in
             
             // TODO: Json error handling
-            if let error = error {
+            if let error = response.result.error {
                 failure(error)
                 return
             }
-            if let data: AnyObject = data {
+            if let data: AnyObject = response.result.value {
                 let json = JSON(data)
                 let user = Mapper<User>().map(json.dictionaryObject!)!
-                if let token = user.accessToken {
+                if let _ = user.accessToken {
                     success(user)
                     return
                 }
